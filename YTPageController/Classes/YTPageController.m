@@ -86,8 +86,25 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 @synthesize pageCoordinator = _coordinator;
 @synthesize _context = _context;
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        _scrollEnabled = YES;
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _scrollEnabled = YES;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view insertSubview:self._collectionView atIndex:0];
 }
 
@@ -113,12 +130,14 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
     _delegateRespondsTo.didEndTransition = [delegate respondsToSelector:@selector(pageController:didEndTransition:)];
 }
 
-- (BOOL)bounces {
-    return self._collectionView.bounces;
+- (void)setBounces:(BOOL)bounces {
+    _bounces = bounces;
+    __collectionView.bounces = bounces;
 }
 
-- (void)setBounces:(BOOL)bounces {
-    self._collectionView.bounces = bounces;
+- (void)setScrollEnabled:(BOOL)scrollEnabled {
+    _scrollEnabled = scrollEnabled;
+    __collectionView.scrollEnabled = scrollEnabled;
 }
 
 - (void)setCurrentIndex:(NSInteger)currentIndex {
@@ -247,6 +266,8 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
         __collectionView.backgroundColor = [UIColor clearColor];
         __collectionView.showsHorizontalScrollIndicator = NO;
         __collectionView.pagingEnabled = YES;
+        __collectionView.scrollEnabled = self.scrollEnabled;
+        __collectionView.bounces = self.bounces;
         __collectionView.dataSource = self._collectionViewDataSource;
         __collectionView.delegate = self._collectionViewDelegate;
         [__collectionView registerClass:[YTPageCollectionViewCell class] forCellWithReuseIdentifier:YTPageCollectionCellIdentifier];

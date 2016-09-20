@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/YTPageController.svg?style=flat)](http://cocoapods.org/pods/YTPageController)
 [![Platform](https://img.shields.io/cocoapods/p/YTPageController.svg?style=flat)](http://cocoapods.org/pods/YTPageController)
 
+Yet another drop-in replacement of `UIPageViewController`, inspired by Apple's offical Music app.
+
+
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -27,3 +31,5 @@ Yeatse CC, iyeatse@gmail.com
 ## License
 
 YTPageController is available under the MIT license. See the LICENSE file for more info.
+
+

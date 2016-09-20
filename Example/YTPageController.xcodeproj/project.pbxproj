@@ -3,19 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0B87F7B63585FF59393029B8 /* Pods_YTPageController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F07FB229209C8BD7BBC0246 /* Pods_YTPageController_Example.framework */; };
 		38AD3E3E1D91519900AFC8E0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38AD3E3D1D91519900AFC8E0 /* Launch Screen.storyboard */; };
+		38C5996D1D91875400CC7588 /* SegmentedControlTransition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C599661D91875400CC7588 /* SegmentedControlTransition.storyboard */; };
+		38C5996E1D91875400CC7588 /* SegmentedControlTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C599681D91875400CC7588 /* SegmentedControlTransitionDelegate.m */; };
+		38C5996F1D91875400CC7588 /* TabBarTransition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C5996A1D91875400CC7588 /* TabBarTransition.storyboard */; };
+		38C599701D91875400CC7588 /* TabBarTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C5996C1D91875400CC7588 /* TabBarTransitionDelegate.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* YTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* YTAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* YTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* YTViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -41,6 +44,12 @@
 		2A0ABC29729E9737CB648D9D /* Pods-YTPageController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTPageController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTPageController_Example/Pods-YTPageController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2DAC67B4C309094714BCB058 /* Pods-YTPageController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTPageController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTPageController_Tests/Pods-YTPageController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		38AD3E3D1D91519900AFC8E0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		38C599661D91875400CC7588 /* SegmentedControlTransition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SegmentedControlTransition.storyboard; sourceTree = "<group>"; };
+		38C599671D91875400CC7588 /* SegmentedControlTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedControlTransitionDelegate.h; sourceTree = "<group>"; };
+		38C599681D91875400CC7588 /* SegmentedControlTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedControlTransitionDelegate.m; sourceTree = "<group>"; };
+		38C5996A1D91875400CC7588 /* TabBarTransition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarTransition.storyboard; sourceTree = "<group>"; };
+		38C5996B1D91875400CC7588 /* TabBarTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarTransitionDelegate.h; sourceTree = "<group>"; };
+		38C5996C1D91875400CC7588 /* TabBarTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarTransitionDelegate.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YTPageController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTPageController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,8 +60,6 @@
 		6003F59B195388D20070C39A /* YTPageController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YTPageController-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* YTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* YTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* YTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* YTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* YTPageController_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YTPageController_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -95,6 +102,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38C599651D91875400CC7588 /* Segmented Control Transition */ = {
+			isa = PBXGroup;
+			children = (
+				38C599661D91875400CC7588 /* SegmentedControlTransition.storyboard */,
+				38C599671D91875400CC7588 /* SegmentedControlTransitionDelegate.h */,
+				38C599681D91875400CC7588 /* SegmentedControlTransitionDelegate.m */,
+			);
+			path = "Segmented Control Transition";
+			sourceTree = "<group>";
+		};
+		38C599691D91875400CC7588 /* Tab Bar Transition */ = {
+			isa = PBXGroup;
+			children = (
+				38C5996A1D91875400CC7588 /* TabBarTransition.storyboard */,
+				38C5996B1D91875400CC7588 /* TabBarTransitionDelegate.h */,
+				38C5996C1D91875400CC7588 /* TabBarTransitionDelegate.m */,
+			);
+			path = "Tab Bar Transition";
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -134,10 +161,10 @@
 			children = (
 				6003F59C195388D20070C39A /* YTAppDelegate.h */,
 				6003F59D195388D20070C39A /* YTAppDelegate.m */,
+				38C599651D91875400CC7588 /* Segmented Control Transition */,
+				38C599691D91875400CC7588 /* Tab Bar Transition */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				38AD3E3D1D91519900AFC8E0 /* Launch Screen.storyboard */,
-				6003F5A5195388D20070C39A /* YTViewController.h */,
-				6003F5A6195388D20070C39A /* YTViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -256,7 +283,7 @@
 				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "YTPageController" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -279,8 +306,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38C5996D1D91875400CC7588 /* SegmentedControlTransition.storyboard in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				38C5996F1D91875400CC7588 /* TabBarTransition.storyboard in Resources */,
 				38AD3E3E1D91519900AFC8E0 /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -395,8 +424,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* YTAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* YTViewController.m in Sources */,
+				38C5996E1D91875400CC7588 /* SegmentedControlTransitionDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				38C599701D91875400CC7588 /* TabBarTransitionDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

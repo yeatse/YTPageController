@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSArray<__kindof UIViewController*>* viewControllers;
 
 @property (nonatomic) IBInspectable BOOL bounces;
+@property (nonatomic) IBInspectable BOOL scrollEnabled;
 
 @property (nonatomic, readonly) BOOL inTransition;
 @property (nullable, nonatomic, readonly) id<YTPageTransitionCoordinator> pageCoordinator;
