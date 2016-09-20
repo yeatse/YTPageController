@@ -11,6 +11,8 @@ Yet another drop-in replacement of `UIPageViewController`, inspired by Apple's o
 
 YTPageController introduces a general solution to achieve a smooth transition when user scrolls between view controllers, just as what Apple did in their Music app:
 
+![](/snapshot0.gif)
+
 To implement this effect, just add these lines of code in your `YTPageControllerDelegate`:
 
 ```objectivec
