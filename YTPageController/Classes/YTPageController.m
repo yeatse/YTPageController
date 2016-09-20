@@ -8,8 +8,11 @@
 
 #import "YTPageController.h"
 
+#define YTPageLogEnabled 0
+
 static NSTimeInterval const YTReferencedTransitionDuration = 1;
 static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
+
 
 #pragma mark - Private Classes
 
@@ -509,7 +512,9 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
             } else if (progress < 0) {
                 overDragging = fromIndex < toIndex ? fromIndex > _draggingTargetIndex : fromIndex < _draggingTargetIndex;
             }
+#if YTPageLogEnabled
             NSLog(@"over dragging test: tracking = %zd, from = %zd, to = %zd, target = %zd, overdragging = %d", scrollView.tracking, fromIndex, toIndex, _draggingTargetIndex, overDragging);
+#endif
         }
         
         if (overDragging) {
