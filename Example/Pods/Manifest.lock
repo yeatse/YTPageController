@@ -1,0 +1,16 @@
+PODS:
+  - YTPageController (0.1.0)
+
+DEPENDENCIES:
+  - YTPageController (from `../`)
+
+EXTERNAL SOURCES:
+  YTPageController:
+    :path: ../
+
+SPEC CHECKSUMS:
+  YTPageController: 2d04edae4e47b94697f9e3d9f8ffe2e2716b2bcf
+
+PODFILE CHECKSUM: 33288a4a78a82a1dcec8209b8eaf285abcc61607
+
+COCOAPODS: 1.1.0.beta.2

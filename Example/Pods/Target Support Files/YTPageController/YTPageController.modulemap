@@ -1,0 +1,6 @@
+framework module YTPageController {
+  umbrella header "YTPageController-umbrella.h"
+
+  export *
+  module * { export * }
+}
