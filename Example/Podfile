@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'YTPageController_Example' do
+  pod 'YTPageController', :path => '../'
+
+  target 'YTPageController_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
