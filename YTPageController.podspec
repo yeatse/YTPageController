@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Another drop-in replacement for UIPageViewController. You can run animations alongside the paging process. Fully storyboard support.
+  YTPageController introduces a general solution to archieve a smooth transitoin when user scrolls between view controllers, just as what Apple did in their Music App. With the help of YTPageController, you can implement the effect in a few lines.
                        DESC
 
   s.homepage         = 'https://github.com/yeatse/YTPageController'
