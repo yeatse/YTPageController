@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'YTPageController'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'Yet another drop-in replacement for UIPageViewController.'
 
 # This description is used to generate tags and improve search results.
