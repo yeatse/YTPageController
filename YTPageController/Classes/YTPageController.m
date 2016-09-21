@@ -8,7 +8,9 @@
 
 #import "YTPageController.h"
 
+#ifndef YTPageLogEnabled
 #define YTPageLogEnabled 0
+#endif
 
 static NSTimeInterval const YTReferencedTransitionDuration = 1;
 static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
@@ -564,9 +566,11 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 }
 
 - (void)cleanUpChildViewController {
-    [_controller willMoveToParentViewController:nil];
-    [_controller.view removeFromSuperview];
-    [_controller removeFromParentViewController];
+    if (_controller.view.superview == self.contentView) { // Ignore any view controller that is not `managed` by this cell
+        [_controller willMoveToParentViewController:nil];
+        [_controller.view removeFromSuperview];
+        [_controller removeFromParentViewController];
+    }
     _controller = nil;
 }
 
