@@ -550,14 +550,10 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
     [parentVC addChildViewController:childVC];
     [self.contentView addSubview:childVC.view];
     childVC.view.frame = self.contentView.bounds;
+    childVC.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [childVC didMoveToParentViewController:parentVC];
     
     _controller = childVC;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    _controller.view.frame = self.contentView.bounds;
 }
 
 - (void)prepareForReuse {
