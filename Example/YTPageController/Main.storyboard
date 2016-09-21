@@ -57,13 +57,25 @@
                                             <segue destination="36v-AN-y9j" kind="show" id="kvw-WB-qgM"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Soe-ML-X2N">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="o3P-5T-z4p" style="IBUITableViewCellStyleDefault" id="Soe-ML-X2N">
                                         <rect key="frame" x="0.0" y="152" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Soe-ML-X2N" id="oEW-a0-Mc7">
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Dynamic Pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o3P-5T-z4p">
+                                                    <frame key="frameInset" minX="15" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="AlQ-U9-7I3" kind="show" id="esn-5y-zct"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -93,7 +105,15 @@
                 <viewControllerPlaceholder storyboardName="TabBarTransition" id="36v-AN-y9j" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hes-W4-gFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870" y="220"/>
+            <point key="canvasLocation" x="870" y="92"/>
+        </scene>
+        <!--DynamicPages-->
+        <scene sceneID="Qe3-9f-m9s">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DynamicPages" id="AlQ-U9-7I3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nVX-jb-8fD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="869" y="197"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZN3-he-OYr">

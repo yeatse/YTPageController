@@ -13,6 +13,9 @@
 		38C5996E1D91875400CC7588 /* SegmentedControlTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C599681D91875400CC7588 /* SegmentedControlTransitionDelegate.m */; };
 		38C5996F1D91875400CC7588 /* TabBarTransition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C5996A1D91875400CC7588 /* TabBarTransition.storyboard */; };
 		38C599701D91875400CC7588 /* TabBarTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C5996C1D91875400CC7588 /* TabBarTransitionDelegate.m */; };
+		38E1219D1D925C3D00376048 /* DynamicPages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E1219C1D925C3D00376048 /* DynamicPages.storyboard */; };
+		38E121A11D925C8F00376048 /* DynamicPagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E121A01D925C8F00376048 /* DynamicPagesViewController.m */; };
+		38E121A41D925D1F00376048 /* DynamicPagesChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E121A31D925D1F00376048 /* DynamicPagesChildViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -50,6 +53,11 @@
 		38C5996A1D91875400CC7588 /* TabBarTransition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarTransition.storyboard; sourceTree = "<group>"; };
 		38C5996B1D91875400CC7588 /* TabBarTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarTransitionDelegate.h; sourceTree = "<group>"; };
 		38C5996C1D91875400CC7588 /* TabBarTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarTransitionDelegate.m; sourceTree = "<group>"; };
+		38E1219C1D925C3D00376048 /* DynamicPages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DynamicPages.storyboard; path = "Dynamic Pages/DynamicPages.storyboard"; sourceTree = "<group>"; };
+		38E1219F1D925C8F00376048 /* DynamicPagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicPagesViewController.h; path = "Dynamic Pages/DynamicPagesViewController.h"; sourceTree = "<group>"; };
+		38E121A01D925C8F00376048 /* DynamicPagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicPagesViewController.m; path = "Dynamic Pages/DynamicPagesViewController.m"; sourceTree = "<group>"; };
+		38E121A21D925D1F00376048 /* DynamicPagesChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicPagesChildViewController.h; path = "Dynamic Pages/DynamicPagesChildViewController.h"; sourceTree = "<group>"; };
+		38E121A31D925D1F00376048 /* DynamicPagesChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicPagesChildViewController.m; path = "Dynamic Pages/DynamicPagesChildViewController.m"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YTPageController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTPageController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +130,18 @@
 			path = "Tab Bar Transition";
 			sourceTree = "<group>";
 		};
+		38E1219E1D925C4100376048 /* Dynamic Pages */ = {
+			isa = PBXGroup;
+			children = (
+				38E1219C1D925C3D00376048 /* DynamicPages.storyboard */,
+				38E1219F1D925C8F00376048 /* DynamicPagesViewController.h */,
+				38E121A01D925C8F00376048 /* DynamicPagesViewController.m */,
+				38E121A21D925D1F00376048 /* DynamicPagesChildViewController.h */,
+				38E121A31D925D1F00376048 /* DynamicPagesChildViewController.m */,
+			);
+			name = "Dynamic Pages";
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +183,7 @@
 				6003F59D195388D20070C39A /* YTAppDelegate.m */,
 				38C599651D91875400CC7588 /* Segmented Control Transition */,
 				38C599691D91875400CC7588 /* Tab Bar Transition */,
+				38E1219E1D925C4100376048 /* Dynamic Pages */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				38AD3E3D1D91519900AFC8E0 /* Launch Screen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -277,6 +298,9 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Yeatse CC";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = L6JP27B8YR;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -310,6 +334,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				38C5996F1D91875400CC7588 /* TabBarTransition.storyboard in Resources */,
+				38E1219D1D925C3D00376048 /* DynamicPages.storyboard in Resources */,
 				38AD3E3E1D91519900AFC8E0 /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -426,6 +451,8 @@
 				6003F59E195388D20070C39A /* YTAppDelegate.m in Sources */,
 				38C5996E1D91875400CC7588 /* SegmentedControlTransitionDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				38E121A11D925C8F00376048 /* DynamicPagesViewController.m in Sources */,
+				38E121A41D925D1F00376048 /* DynamicPagesChildViewController.m in Sources */,
 				38C599701D91875400CC7588 /* TabBarTransitionDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,6 +583,7 @@
 			baseConfigurationReference = 2A0ABC29729E9737CB648D9D /* Pods-YTPageController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YTPageController/YTPageController-Prefix.pch";
 				INFOPLIST_FILE = "YTPageController/YTPageController-Info.plist";
@@ -571,6 +599,7 @@
 			baseConfigurationReference = ED8189557335C8F0DAB6FA13 /* Pods-YTPageController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YTPageController/YTPageController-Prefix.pch";
 				INFOPLIST_FILE = "YTPageController/YTPageController-Info.plist";

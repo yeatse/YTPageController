@@ -94,7 +94,7 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _scrollEnabled = YES;
+        [self _commonInit];
     }
     return self;
 }
@@ -102,9 +102,14 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _scrollEnabled = YES;
+        [self _commonInit];
     }
     return self;
+}
+
+- (void)_commonInit {
+    _scrollEnabled = YES;
+    _currentIndex = -1;
 }
 
 - (void)viewDidLoad {
@@ -115,8 +120,11 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
     proxyScrollView.scrollEnabled = NO;
     proxyScrollView.hidden = YES;
     [self.view insertSubview:proxyScrollView atIndex:0];
-    
     [self.view insertSubview:self._collectionView atIndex:1];
+    
+    if ([self _numberOfViewControllers] > 0) {
+        _currentIndex = 0;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -173,6 +181,18 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 
 - (void)reloadPages {
     [self._collectionView reloadData];
+    
+    if (!_inTransition) {
+        NSInteger pageCount = [self _numberOfViewControllers];
+        if (pageCount <= 0) {
+            _currentIndex = -1;
+        } else {
+            _currentIndex = MIN(MAX(0, _currentIndex), pageCount - 1);
+        }
+    } else {
+        // There may be some bugs when reload pages during paging. I'm still working on resolving it.
+    }
+    
 }
 
 #pragma mark - `viewControllers` property support
