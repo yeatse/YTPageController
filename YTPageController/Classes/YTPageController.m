@@ -107,8 +107,14 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.view insertSubview:self._collectionView atIndex:0];
+    
+    // Add a proxy scrollview to eat the adjusted insets
+    UIScrollView* proxyScrollView = [UIScrollView new];
+    proxyScrollView.scrollEnabled = NO;
+    proxyScrollView.hidden = YES;
+    [self.view insertSubview:proxyScrollView atIndex:0];
+    
+    [self.view insertSubview:self._collectionView atIndex:1];
 }
 
 - (void)didReceiveMemoryWarning {
