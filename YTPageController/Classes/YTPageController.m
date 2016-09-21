@@ -119,6 +119,7 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
     UIScrollView* proxyScrollView = [UIScrollView new];
     proxyScrollView.scrollEnabled = NO;
     proxyScrollView.hidden = YES;
+    proxyScrollView.scrollsToTop = NO;
     [self.view insertSubview:proxyScrollView atIndex:0];
     [self.view insertSubview:self._collectionView atIndex:1];
     
@@ -297,6 +298,7 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
         __collectionView.backgroundColor = [UIColor clearColor];
         __collectionView.showsHorizontalScrollIndicator = NO;
         __collectionView.pagingEnabled = YES;
+        __collectionView.scrollsToTop = NO;
         __collectionView.scrollEnabled = self.scrollEnabled;
         __collectionView.bounces = self.bounces;
         __collectionView.dataSource = self._collectionViewDataSource;
