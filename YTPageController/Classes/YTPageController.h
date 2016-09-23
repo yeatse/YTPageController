@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) IBInspectable BOOL scrollEnabled;
 
 @property (nonatomic, readonly) BOOL inTransition;
+
+// The coordinator which helps you run your own animations along with the page scrolling.
+// Note that this property contains a valid value only when scrolling is started by user gesture.
 @property (nullable, nonatomic, readonly) id<YTPageTransitionCoordinator> pageCoordinator;
 
 @property (nonatomic) NSInteger currentIndex;
@@ -77,6 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
+// Called before transition started by user's gesture or programmatically.
 - (void)pageController:(YTPageController*)pageController willTransitionToIndex:(NSInteger)index;
 
 - (void)pageController:(YTPageController*)pageController didUpdateTransition:(id<YTPageTransitionContext>)context;

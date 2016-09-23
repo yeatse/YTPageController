@@ -15,6 +15,10 @@
 static NSTimeInterval const YTReferencedTransitionDuration = 1;
 static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 
+typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
+    YTPageTransitionStartedByUser,
+    YTPageTransitionStartedProgrammically
+};
 
 #pragma mark - Private Classes
 
@@ -25,6 +29,7 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 @property (nonatomic) BOOL isCanceled;
 @property (nonatomic) CGFloat relativeOffset;
 @property (nonatomic) NSTimeInterval animationDuration;
+@property (nonatomic) YTPageTransitionStartReason startReason;
 
 @end
 
@@ -132,6 +137,11 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
     [super didReceiveMemoryWarning];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self._collectionLayout.itemSize = self._collectionView.bounds.size;
+}
+
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     self._collectionLayout.itemSize = size;
@@ -166,17 +176,20 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 
 - (void)setCurrentIndex:(NSInteger)currentIndex animated:(BOOL)animated {
     if (_inTransition) {
-        return;
+        // If previous transition was started by user, cancel it; otherwise finish it.
+        BOOL shouldComplete = (_context.startReason == YTPageTransitionStartedProgrammically);
+        [self _finishTransition:shouldComplete];
     }
     
-    [self _startTransitionFromIndex:_currentIndex toIndex:currentIndex animated:animated];
+    [self _startTransitionToIndex:currentIndex reason:YTPageTransitionStartedProgrammically];
     
     _currentIndex = currentIndex;
+    
     NSIndexPath* indexPath = [NSIndexPath indexPathForItem:currentIndex inSection:0];
     [self._collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:animated];
     
     if (!animated) {
-        [self _finishTransition];
+        [self _finishTransition:YES];
     }
 }
 
@@ -216,20 +229,23 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 
 #pragma mark - State Handling
 
-- (void)_startTransitionFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex animated:(BOOL)animated {
-    if (fromIndex == toIndex) {
+- (void)_startTransitionToIndex:(NSInteger)toIndex reason:(YTPageTransitionStartReason)reason {
+    if (_currentIndex == toIndex) {
         return;
     }
+    
     _inTransition = YES;
     
     _context = [_YTPageTransitionContext new];
-    _context.fromIndex = fromIndex;
+    _context.fromIndex = _currentIndex;
     _context.toIndex = toIndex;
-    _context.animationDuration = animated ? YTReferencedTransitionDuration : 0;
+    _context.startReason = reason;
     
-    if (animated) {
+    if (reason == YTPageTransitionStartedByUser) {
+        _context.animationDuration = YTReferencedTransitionDuration;
         _coordinator = [[_YTPageTransitionCoordinator alloc] initWithContext:_context];
     } else {
+        _context.animationDuration = 0;
         _coordinator = nil;
     }
     
@@ -243,10 +259,11 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 - (void)_updateTransitionWithOffset:(CGFloat)relativeOffset {
     _context.relativeOffset = relativeOffset;
     
-    CGFloat progress = (relativeOffset - (CGFloat)_context.fromIndex) / (CGFloat)(_context.toIndex - _context.fromIndex);
-    progress = MIN(MAX(0, progress), 1);
-    
-    [_coordinator updateTransitionProgress:progress];
+    if (_context.startReason == YTPageTransitionStartedByUser) {
+        CGFloat progress = (relativeOffset - (CGFloat)_context.fromIndex) / (CGFloat)(_context.toIndex - _context.fromIndex);
+        progress = MIN(MAX(0, progress), 1);
+        [_coordinator updateTransitionProgress:progress];
+    }
     
     if (_delegateRespondsTo.didUpdateTransition) {
         [self.delegate pageController:self didUpdateTransition:_context];
@@ -436,6 +453,9 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
     for (void(^block)() in _completionBlocks) {
         block(_context);
     }
+    // release all retained blocks
+    [_animationBlocks removeAllObjects];
+    [_completionBlocks removeAllObjects];
 }
 
 @end
@@ -483,7 +503,7 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
     // Caused by setCurrentIndex:animated:
     if (_controller.inTransition) {
-        [_controller _finishTransition];
+        [_controller _finishTransition:YES];
     }
 }
 
@@ -518,7 +538,7 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
             // Start transition
             NSInteger newIndex = (NSInteger)(relativeOffset > startOffset ? ceil(relativeOffset) : floor(relativeOffset));
             if (newIndex >= 0 && newIndex < [ctrl _numberOfViewControllers]) {
-                [ctrl _startTransitionFromIndex:ctrl.currentIndex toIndex:newIndex animated:YES];
+                [ctrl _startTransitionToIndex:newIndex reason:YTPageTransitionStartedByUser];
                 [ctrl _updateTransitionWithOffset:relativeOffset];
             }
         }
@@ -551,7 +571,7 @@ static NSString* const YTPageCollectionCellIdentifier = @"PageCollectionCell";
             if (newIndex >= 0 && newIndex < [ctrl _numberOfViewControllers]) {
                 // Restart a new transition if progress not within (0, 1)
                 [ctrl _finishTransition];
-                [ctrl _startTransitionFromIndex:ctrl.currentIndex toIndex:newIndex animated:YES];
+                [ctrl _startTransitionToIndex:newIndex reason:YTPageTransitionStartedByUser];
             }
         }
         
