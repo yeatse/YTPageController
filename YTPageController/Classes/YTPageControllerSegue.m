@@ -11,7 +11,7 @@
 
 #import <objc/runtime.h>
 
-NSString* const YTPageControllerSegueIdentifierPrefix = @"YTPage_";
+NSString* const YTPageControllerSegueIdentifierPrefix = @"YTPage";
 
 @implementation YTPageControllerSegue
 
@@ -56,9 +56,9 @@ NSString* const YTPageControllerSegueIdentifierPrefix = @"YTPage_";
     BOOL hasNext = YES;
     NSInteger index = 0;
     while (hasNext) {
-        NSString* identifier = [YTPageControllerSegueIdentifierPrefix stringByAppendingString:@(index).stringValue];
         @try {
-            [self performSegueWithIdentifier:identifier sender:self];
+            NSString* identifier = [NSString stringWithFormat:@"%@_%zd", YTPageControllerSegueIdentifierPrefix, index];
+            [self performSegueWithIdentifier:identifier sender:nil];
         } @catch (NSException *exception) {
             if (exception.name == NSInvalidArgumentException) {
                 hasNext = NO;
