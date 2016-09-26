@@ -538,6 +538,10 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
             // Start transition
             NSInteger newIndex = (NSInteger)(relativeOffset > startOffset ? ceil(relativeOffset) : floor(relativeOffset));
             if (newIndex >= 0 && newIndex < [ctrl _numberOfViewControllers]) {
+                if (ABS(ctrl.currentIndex - newIndex) > 1) { // Sometimes the `currentIndex` will be out of sync
+                    [ctrl _startTransitionToIndex:(ctrl.currentIndex > newIndex ? newIndex + 1 : newIndex - 1) reason:YTPageTransitionStartedProgrammically];
+                    [ctrl _finishTransition:YES];
+                }
                 [ctrl _startTransitionToIndex:newIndex reason:YTPageTransitionStartedByUser];
                 [ctrl _updateTransitionWithOffset:relativeOffset];
             }
@@ -549,7 +553,7 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
         
         CGFloat progress = (relativeOffset - (CGFloat)fromIndex) / (CGFloat)(toIndex - fromIndex);
         BOOL overDragging = NO;
-        if (scrollView.dragging && (progress < -DBL_EPSILON || progress - 1 > DBL_EPSILON)) {
+        if (progress < -DBL_EPSILON || progress - 1 > DBL_EPSILON) {
             if (scrollView.tracking) {
                 overDragging = YES;
             } else if (ABS(newIndex - ctrl.currentIndex) > 1) {
