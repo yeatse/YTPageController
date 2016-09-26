@@ -26,11 +26,13 @@
 
 - (void)pageController:(YTPageController *)pageController willTransitionToIndex:(NSInteger)index {
     [pageController.pageCoordinator animateAlongsidePagingInView:self.tabBar animation:^(id<YTPageTransitionContext>  _Nonnull context) {
+        self.tabBar.userInteractionEnabled = NO;
         self.tabBar.selectedItem = self.tabBar.items[[context toIndex]];
     } completion:^(id<YTPageTransitionContext>  _Nonnull context) {
         if ([context isCanceled]) {
             self.tabBar.selectedItem = self.tabBar.items[[context fromIndex]];
         }
+        self.tabBar.userInteractionEnabled = YES;
     }];
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B87F7B63585FF59393029B8 /* Pods_YTPageController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F07FB229209C8BD7BBC0246 /* Pods_YTPageController_Example.framework */; };
+		385C7EA81D9815F700BEAD30 /* ParallaxHeader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385C7EA71D9815F700BEAD30 /* ParallaxHeader.storyboard */; };
+		385C7EAC1D981B4500BEAD30 /* ParallaxHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385C7EAB1D981B4500BEAD30 /* ParallaxHeaderViewController.m */; };
 		38AD3E3E1D91519900AFC8E0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38AD3E3D1D91519900AFC8E0 /* Launch Screen.storyboard */; };
 		38C5996D1D91875400CC7588 /* SegmentedControlTransition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C599661D91875400CC7588 /* SegmentedControlTransition.storyboard */; };
 		38C5996E1D91875400CC7588 /* SegmentedControlTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C599681D91875400CC7588 /* SegmentedControlTransitionDelegate.m */; };
@@ -46,6 +48,9 @@
 		0F07FB229209C8BD7BBC0246 /* Pods_YTPageController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTPageController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0ABC29729E9737CB648D9D /* Pods-YTPageController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTPageController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTPageController_Example/Pods-YTPageController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2DAC67B4C309094714BCB058 /* Pods-YTPageController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTPageController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTPageController_Tests/Pods-YTPageController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		385C7EA71D9815F700BEAD30 /* ParallaxHeader.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ParallaxHeader.storyboard; path = "Parallax Header/ParallaxHeader.storyboard"; sourceTree = "<group>"; };
+		385C7EAA1D981B4500BEAD30 /* ParallaxHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxHeaderViewController.h; path = "Parallax Header/ParallaxHeaderViewController.h"; sourceTree = "<group>"; };
+		385C7EAB1D981B4500BEAD30 /* ParallaxHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxHeaderViewController.m; path = "Parallax Header/ParallaxHeaderViewController.m"; sourceTree = "<group>"; };
 		38AD3E3D1D91519900AFC8E0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		38C599661D91875400CC7588 /* SegmentedControlTransition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SegmentedControlTransition.storyboard; sourceTree = "<group>"; };
 		38C599671D91875400CC7588 /* SegmentedControlTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedControlTransitionDelegate.h; sourceTree = "<group>"; };
@@ -110,6 +115,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		385C7EA91D9815FE00BEAD30 /* Parallax Header */ = {
+			isa = PBXGroup;
+			children = (
+				385C7EA71D9815F700BEAD30 /* ParallaxHeader.storyboard */,
+				385C7EAA1D981B4500BEAD30 /* ParallaxHeaderViewController.h */,
+				385C7EAB1D981B4500BEAD30 /* ParallaxHeaderViewController.m */,
+			);
+			name = "Parallax Header";
+			sourceTree = "<group>";
+		};
 		38C599651D91875400CC7588 /* Segmented Control Transition */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +199,7 @@
 				38C599651D91875400CC7588 /* Segmented Control Transition */,
 				38C599691D91875400CC7588 /* Tab Bar Transition */,
 				38E1219E1D925C4100376048 /* Dynamic Pages */,
+				385C7EA91D9815FE00BEAD30 /* Parallax Header */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				38AD3E3D1D91519900AFC8E0 /* Launch Screen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -336,6 +352,7 @@
 				38C5996F1D91875400CC7588 /* TabBarTransition.storyboard in Resources */,
 				38E1219D1D925C3D00376048 /* DynamicPages.storyboard in Resources */,
 				38AD3E3E1D91519900AFC8E0 /* Launch Screen.storyboard in Resources */,
+				385C7EA81D9815F700BEAD30 /* ParallaxHeader.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +470,7 @@
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				38E121A11D925C8F00376048 /* DynamicPagesViewController.m in Sources */,
 				38E121A41D925D1F00376048 /* DynamicPagesChildViewController.m in Sources */,
+				385C7EAC1D981B4500BEAD30 /* ParallaxHeaderViewController.m in Sources */,
 				38C599701D91875400CC7588 /* TabBarTransitionDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
