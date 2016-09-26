@@ -293,6 +293,7 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     }
     
     _context = nil;
+    _coordinator = nil;
 }
 
 #pragma mark - Getters
