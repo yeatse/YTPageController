@@ -139,12 +139,13 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    self._collectionLayout.itemSize = self._collectionView.bounds.size;
+    
+    self._collectionLayout.itemSize = self.view.bounds.size;
+    self._collectionView.frame = self.view.bounds;
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    self._collectionLayout.itemSize = size;
     
     NSIndexPath* currIndexPath = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
@@ -312,7 +313,6 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 - (UICollectionView *)_collectionView {
     if (!__collectionView) {
         __collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self._collectionLayout];
-        __collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         __collectionView.backgroundColor = [UIColor clearColor];
         __collectionView.showsHorizontalScrollIndicator = NO;
         __collectionView.pagingEnabled = YES;

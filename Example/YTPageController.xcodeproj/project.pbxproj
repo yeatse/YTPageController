@@ -18,6 +18,9 @@
 		38E1219D1D925C3D00376048 /* DynamicPages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E1219C1D925C3D00376048 /* DynamicPages.storyboard */; };
 		38E121A11D925C8F00376048 /* DynamicPagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E121A01D925C8F00376048 /* DynamicPagesViewController.m */; };
 		38E121A41D925D1F00376048 /* DynamicPagesChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E121A31D925D1F00376048 /* DynamicPagesChildViewController.m */; };
+		38E5D0A51D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E5D0A41D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.m */; };
+		38E5D0A81D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E5D0A71D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.m */; };
+		38E5D0B11D9A703100443CA3 /* ParallaxHeaderImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E5D0B01D9A703100443CA3 /* ParallaxHeaderImageViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -63,6 +66,12 @@
 		38E121A01D925C8F00376048 /* DynamicPagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicPagesViewController.m; path = "Dynamic Pages/DynamicPagesViewController.m"; sourceTree = "<group>"; };
 		38E121A21D925D1F00376048 /* DynamicPagesChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicPagesChildViewController.h; path = "Dynamic Pages/DynamicPagesChildViewController.h"; sourceTree = "<group>"; };
 		38E121A31D925D1F00376048 /* DynamicPagesChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicPagesChildViewController.m; path = "Dynamic Pages/DynamicPagesChildViewController.m"; sourceTree = "<group>"; };
+		38E5D0A31D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxHeaderTableViewDataSource1.h; path = "Parallax Header/ParallaxHeaderTableViewDataSource1.h"; sourceTree = "<group>"; };
+		38E5D0A41D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxHeaderTableViewDataSource1.m; path = "Parallax Header/ParallaxHeaderTableViewDataSource1.m"; sourceTree = "<group>"; };
+		38E5D0A61D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxHeaderTableViewDataSource2.h; path = "Parallax Header/ParallaxHeaderTableViewDataSource2.h"; sourceTree = "<group>"; };
+		38E5D0A71D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxHeaderTableViewDataSource2.m; path = "Parallax Header/ParallaxHeaderTableViewDataSource2.m"; sourceTree = "<group>"; };
+		38E5D0AF1D9A703100443CA3 /* ParallaxHeaderImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxHeaderImageViewController.h; path = "Parallax Header/ParallaxHeaderImageViewController.h"; sourceTree = "<group>"; };
+		38E5D0B01D9A703100443CA3 /* ParallaxHeaderImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxHeaderImageViewController.m; path = "Parallax Header/ParallaxHeaderImageViewController.m"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YTPageController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTPageController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,6 +130,12 @@
 				385C7EA71D9815F700BEAD30 /* ParallaxHeader.storyboard */,
 				385C7EAA1D981B4500BEAD30 /* ParallaxHeaderViewController.h */,
 				385C7EAB1D981B4500BEAD30 /* ParallaxHeaderViewController.m */,
+				38E5D0AF1D9A703100443CA3 /* ParallaxHeaderImageViewController.h */,
+				38E5D0B01D9A703100443CA3 /* ParallaxHeaderImageViewController.m */,
+				38E5D0A31D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.h */,
+				38E5D0A41D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.m */,
+				38E5D0A61D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.h */,
+				38E5D0A71D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.m */,
 			);
 			name = "Parallax Header";
 			sourceTree = "<group>";
@@ -469,8 +484,11 @@
 				38C5996E1D91875400CC7588 /* SegmentedControlTransitionDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				38E121A11D925C8F00376048 /* DynamicPagesViewController.m in Sources */,
+				38E5D0A51D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.m in Sources */,
 				38E121A41D925D1F00376048 /* DynamicPagesChildViewController.m in Sources */,
 				385C7EAC1D981B4500BEAD30 /* ParallaxHeaderViewController.m in Sources */,
+				38E5D0B11D9A703100443CA3 /* ParallaxHeaderImageViewController.m in Sources */,
+				38E5D0A81D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.m in Sources */,
 				38C599701D91875400CC7588 /* TabBarTransitionDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
