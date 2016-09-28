@@ -11,9 +11,9 @@ Yet another drop-in replacement of `UIPageViewController`, inspired by Apple's o
 
 YTPageController introduces a general solution to achieve a smooth transition when user scrolls between view controllers, just as what Apple did in their Music app:
 
-![](/snapshot0.gif)
+![](snapshot0.gif)
 
-To implement this effect, just add these lines of code in your `YTPageControllerDelegate`:
+To implement this effect, simply add these lines in your `YTPageControllerDelegate`:
 
 ```objectivec
 - (void)pageController:(YTPageController *)pageController willTransitionToIndex:(NSInteger)index {
@@ -29,7 +29,37 @@ To implement this effect, just add these lines of code in your `YTPageController
 }
 ```
 
-The key idea to control the percent of its animation is to set the CALayer's `speed` property to 0, and then update the `timeOffset` value according to UIScrollView's `contentOffset`. In addition to `UISegmentedControl`, you can also animate `UITabBar` or any `UIView` subclass you like. Refer to the example project for detailed information.
+The key idea to control the percent of its animation is to set the CALayer's `speed` property to 0, and then update the `timeOffset` value according to UIScrollView's `contentOffset`. In addition to `UISegmentedControl`, you can also animate `UITabBar` or any `UIView` subclass you like:
+
+![](snapshot1.gif)
+
+Refer to the example project for detailed information.
+
+## Usage
+
+- Using code
+
+    You have two ways to set up your `YTPageController` in code:
+    
+    - Implement the `YTPageControllerDataSource` protocol and assign it to `dataSource`.
+    - Assign an array of child view controllers to `viewControllers`.
+
+    If you choose both methods at the same time, `dataSource` will take the priority.
+    
+    Since `YTPageController` is backed by `UICollectionView`, you need to call `- reloadPages` after you change your child view controllers later.
+    
+- Using storyboard
+
+    You can also set up `YTPageController` in storyboard without any code, like what you have done with `UITabBarController`:
+    
+    ![](relationship.png)
+    
+    Since Apple hasn't provide a custom relationship segue, you need to follow these steps to simulate it:
+    
+    1. Drag a custom segue from `YTPageController` to one of your child view controllers and change its class to `YTPageControllerSegue`;
+    2. Name the identifier of this segue with the format `YTPage_{index}`, such as `YTPage_0`, `YTPage_1`, `YTPage_2`, ...
+
+    `YTPageController` will find and perform all these segues in runtime to add the connected view controllers to its child view controllers.
 
 ## Example
 
@@ -37,8 +67,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-iOS 8.0 or above.
-May be working from iOS 6.0, but I didn't test it.
+iOS 8.0 or above. May be working from iOS 6.0, but I haven't test it.
 
 ## Installation
 
