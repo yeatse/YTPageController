@@ -54,7 +54,7 @@ Refer to the example project for detailed information.
     
     ![](relationship.png)
     
-    Since Apple hasn't provide a custom relationship segue, you need to follow these steps to simulate it:
+    Since Apple hasn't provided a custom relationship segue, you need to follow these steps to simulate it:
     
     1. Drag a custom segue from `YTPageController` to one of your child view controllers and change its class to `YTPageControllerSegue`;
     2. Name the identifier of this segue with the format `YTPage_{index}`, such as `YTPage_0`, `YTPage_1`, `YTPage_2`, ...
@@ -67,7 +67,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-iOS 8.0 or above. May be working from iOS 6.0, but I haven't test it.
+iOS 8.0 or above. May be working from iOS 6.0, but I haven't tested it.
 
 ## Installation
 
