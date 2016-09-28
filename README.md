@@ -1,6 +1,6 @@
 # YTPageController
 
-[![CI Status](http://img.shields.io/travis/Yeatse CC/YTPageController.svg?style=flat)](https://travis-ci.org/Yeatse CC/YTPageController)
+[![Build Status](https://travis-ci.org/yeatse/YTPageController.svg?branch=master)](https://travis-ci.org/yeatse/YTPageController)
 [![Version](https://img.shields.io/cocoapods/v/YTPageController.svg?style=flat)](http://cocoapods.org/pods/YTPageController)
 [![License](https://img.shields.io/cocoapods/l/YTPageController.svg?style=flat)](http://cocoapods.org/pods/YTPageController)
 [![Platform](https://img.shields.io/cocoapods/p/YTPageController.svg?style=flat)](http://cocoapods.org/pods/YTPageController)
