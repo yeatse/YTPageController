@@ -59,6 +59,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSInteger fromIndex;
 @property (nonatomic, readonly) NSInteger toIndex;
 
+@property (nullable, nonatomic, readonly) __kindof UIViewController* fromViewController;
+@property (nullable, nonatomic, readonly) __kindof UIViewController* toViewController;
+
 @property (nonatomic, readonly) CGFloat relativeOffset;
 
 @property (nonatomic, readonly) BOOL isCanceled;
@@ -81,11 +84,13 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 // Called before transition started by user's gesture or programmatically.
-- (void)pageController:(YTPageController*)pageController willTransitionToIndex:(NSInteger)index;
+- (void)pageController:(YTPageController *)pageController willStartTransition:(id<YTPageTransitionContext>)context;
 
 - (void)pageController:(YTPageController*)pageController didUpdateTransition:(id<YTPageTransitionContext>)context;
 
 - (void)pageController:(YTPageController *)pageController didEndTransition:(id<YTPageTransitionContext>)context;
+
+- (void)pageController:(YTPageController*)pageController willTransitionToIndex:(NSInteger)index API_DEPRECATED_WITH_REPLACEMENT("-pageController:willStartTransition:", ios(8.0, 8.0));
 
 @end
 

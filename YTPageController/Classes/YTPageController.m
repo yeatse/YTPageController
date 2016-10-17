@@ -26,9 +26,16 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 
 @property (nonatomic) NSInteger fromIndex;
 @property (nonatomic) NSInteger toIndex;
+
+@property (nonatomic) __kindof UIViewController* fromViewController;
+@property (nonatomic) __kindof UIViewController* toViewController;
+
 @property (nonatomic) BOOL isCanceled;
+
 @property (nonatomic) CGFloat relativeOffset;
+
 @property (nonatomic) NSTimeInterval animationDuration;
+
 @property (nonatomic) YTPageTransitionStartReason startReason;
 
 @end
@@ -49,19 +56,27 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 
 @interface _YTPageCollectionDataSource : NSObject<UICollectionViewDataSource>
 
-+ (instancetype)dataSourceWithPageController:(YTPageController*)pageController;
+- (instancetype)initWithPageController:(YTPageController*)pageController;
+
+- (void)refreshCache;
+
+- (NSInteger)numberOfViewControllers;
+
+- (__kindof UIViewController*)viewControllerAtIndex:(NSInteger)index;
 
 @end
 
 
 @interface _YTPageCollectionDelegate : NSObject<UICollectionViewDelegate>
 
-+ (instancetype)delegateWithPageController:(YTPageController*)pageController;
+- (instancetype)initWithPageController:(YTPageController*)pageController;
 
 @end
 
 
 @interface YTPageCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic) NSIndexPath* indexPath;
 
 - (void)configureWithViewController:(UIViewController*)childVC parentViewController:(UIViewController*)parentVC;
 
@@ -84,6 +99,7 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 
 @implementation YTPageController {
     struct {
+        BOOL willStartTransition: 1;
         BOOL willTransitionToIndex: 1;
         BOOL didUpdateTransition: 1;
         BOOL didEndTransition: 1;
@@ -93,8 +109,13 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     _YTPageTransitionCoordinator* _coordinator;
 }
 
-@synthesize pageCoordinator = _coordinator;
+@synthesize _collectionLayout = _collectionLayout;
+@synthesize _collectionView = _collectionView;
+@synthesize _collectionViewDataSource = _collectionViewDataSource;
+@synthesize _collectionViewDelegate = _collectionViewDelegate;
+
 @synthesize _context = _context;
+@synthesize pageCoordinator = _coordinator;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -128,7 +149,7 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     [self.view insertSubview:proxyScrollView atIndex:0];
     [self.view insertSubview:self._collectionView atIndex:1];
     
-    if ([self _numberOfViewControllers] > 0) {
+    if (self._collectionViewDataSource.numberOfViewControllers > 0) {
         _currentIndex = 0;
     }
 }
@@ -156,6 +177,7 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 - (void)setDelegate:(id<YTPageControllerDelegate>)delegate {
     _delegate = delegate;
     
+    _delegateRespondsTo.willStartTransition = [delegate respondsToSelector:@selector(pageController:willStartTransition:)];
     _delegateRespondsTo.willTransitionToIndex = [delegate respondsToSelector:@selector(pageController:willTransitionToIndex:)];
     _delegateRespondsTo.didUpdateTransition = [delegate respondsToSelector:@selector(pageController:didUpdateTransition:)];
     _delegateRespondsTo.didEndTransition = [delegate respondsToSelector:@selector(pageController:didEndTransition:)];
@@ -163,12 +185,12 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 
 - (void)setBounces:(BOOL)bounces {
     _bounces = bounces;
-    __collectionView.bounces = bounces;
+    _collectionView.bounces = bounces;
 }
 
 - (void)setScrollEnabled:(BOOL)scrollEnabled {
     _scrollEnabled = scrollEnabled;
-    __collectionView.scrollEnabled = scrollEnabled;
+    _collectionView.scrollEnabled = scrollEnabled;
 }
 
 - (void)setCurrentIndex:(NSInteger)currentIndex {
@@ -195,10 +217,11 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 }
 
 - (void)reloadPages {
+    [self._collectionViewDataSource refreshCache];
     [self._collectionView reloadData];
     
     if (!_inTransition) {
-        NSInteger pageCount = [self _numberOfViewControllers];
+        NSInteger pageCount = self._collectionViewDataSource.numberOfViewControllers;
         if (pageCount <= 0) {
             _currentIndex = -1;
         } else {
@@ -208,24 +231,6 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
         // There may be some bugs when reload pages during paging. I'm still working on resolving it.
     }
     
-}
-
-#pragma mark - `viewControllers` property support
-
-- (NSInteger)_numberOfViewControllers {
-    if (_dataSource) {
-        return [_dataSource numberOfPagesInPageController:self];
-    } else {
-        return _viewControllers.count;
-    }
-}
-
-- (UIViewController*)_viewControllerAtIndex:(NSInteger)index {
-    if (_dataSource) {
-        return [_dataSource pageController:self pageAtIndex:index];
-    } else {
-        return _viewControllers[index];
-    }
 }
 
 #pragma mark - State Handling
@@ -242,6 +247,14 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     _context.toIndex = toIndex;
     _context.startReason = reason;
     
+    NSInteger pageCount = self._collectionViewDataSource.numberOfViewControllers;
+    if (_currentIndex >= 0 && _currentIndex < pageCount) {
+        _context.fromViewController = [self._collectionViewDataSource viewControllerAtIndex:_currentIndex];
+    }
+    if (toIndex >= 0 && toIndex < pageCount) {
+        _context.toViewController = [self._collectionViewDataSource viewControllerAtIndex:toIndex];
+    }
+    
     if (reason == YTPageTransitionStartedByUser) {
         _context.animationDuration = YTReferencedTransitionDuration;
         _coordinator = [[_YTPageTransitionCoordinator alloc] initWithContext:_context];
@@ -252,6 +265,9 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     
     if (_delegateRespondsTo.willTransitionToIndex) {
         [self.delegate pageController:self willTransitionToIndex:toIndex];
+    }
+    if (_delegateRespondsTo.willStartTransition) {
+        [self.delegate pageController:self willStartTransition:_context];
     }
     
     [_coordinator startTransition];
@@ -300,44 +316,44 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 #pragma mark - Getters
 
 - (UICollectionViewFlowLayout *)_collectionLayout {
-    if (!__collectionLayout) {
-        __collectionLayout = [UICollectionViewFlowLayout new];
-        __collectionLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        __collectionLayout.itemSize = self.view.bounds.size;
-        __collectionLayout.minimumLineSpacing = 0;
-        __collectionLayout.minimumInteritemSpacing = 0;
+    if (!_collectionLayout) {
+        _collectionLayout = [UICollectionViewFlowLayout new];
+        _collectionLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        _collectionLayout.itemSize = self.view.bounds.size;
+        _collectionLayout.minimumLineSpacing = 0;
+        _collectionLayout.minimumInteritemSpacing = 0;
     }
-    return __collectionLayout;
+    return _collectionLayout;
 }
 
 - (UICollectionView *)_collectionView {
-    if (!__collectionView) {
-        __collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self._collectionLayout];
-        __collectionView.backgroundColor = [UIColor clearColor];
-        __collectionView.showsHorizontalScrollIndicator = NO;
-        __collectionView.pagingEnabled = YES;
-        __collectionView.scrollsToTop = NO;
-        __collectionView.scrollEnabled = self.scrollEnabled;
-        __collectionView.bounces = self.bounces;
-        __collectionView.dataSource = self._collectionViewDataSource;
-        __collectionView.delegate = self._collectionViewDelegate;
-        [__collectionView registerClass:[YTPageCollectionViewCell class] forCellWithReuseIdentifier:YTPageCollectionCellIdentifier];
+    if (!_collectionView) {
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:self._collectionLayout];
+        _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.pagingEnabled = YES;
+        _collectionView.scrollsToTop = NO;
+        _collectionView.scrollEnabled = self.scrollEnabled;
+        _collectionView.bounces = self.bounces;
+        _collectionView.dataSource = self._collectionViewDataSource;
+        _collectionView.delegate = self._collectionViewDelegate;
+        [_collectionView registerClass:[YTPageCollectionViewCell class] forCellWithReuseIdentifier:YTPageCollectionCellIdentifier];
     }
-    return __collectionView;
+    return _collectionView;
 }
 
 - (_YTPageCollectionDataSource *)_collectionViewDataSource {
-    if (!__collectionViewDataSource) {
-        __collectionViewDataSource = [_YTPageCollectionDataSource dataSourceWithPageController:self];
+    if (!_collectionViewDataSource) {
+        _collectionViewDataSource = [[_YTPageCollectionDataSource alloc] initWithPageController:self];
     }
-    return __collectionViewDataSource;
+    return _collectionViewDataSource;
 }
 
 - (_YTPageCollectionDelegate *)_collectionViewDelegate {
-    if (!__collectionViewDelegate) {
-        __collectionViewDelegate = [_YTPageCollectionDelegate delegateWithPageController:self];
+    if (!_collectionViewDelegate) {
+        _collectionViewDelegate = [[_YTPageCollectionDelegate alloc] initWithPageController:self];
     }
-    return __collectionViewDelegate;
+    return _collectionViewDelegate;
 }
 
 @end
@@ -464,24 +480,77 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 
 @implementation _YTPageCollectionDataSource {
     YTPageController* __weak _controller;
+    NSMutableDictionary<NSNumber*, UIViewController*>* _controllerCache;
 }
 
-+ (instancetype)dataSourceWithPageController:(YTPageController *)pageController {
-    _YTPageCollectionDataSource* dataSource = [[self alloc] init];
-    if (dataSource) {
-        dataSource->_controller = pageController;
+- (instancetype)initWithPageController:(YTPageController *)pageController {
+    self = [super init];
+    if (self) {
+        _controller = pageController;
+        _controllerCache = [NSMutableDictionary dictionary];
     }
-    return dataSource;
+    return self;
+}
+
+- (void)refreshCache {
+    for (UIViewController* controller in _controllerCache.allValues) {
+        [controller willMoveToParentViewController:nil];
+        [controller.view removeFromSuperview];
+        [controller removeFromParentViewController];
+    }
+    [_controllerCache removeAllObjects];
+}
+
+- (NSInteger)numberOfViewControllers {
+    YTPageController* controller = _controller;
+    if (controller.dataSource) {
+        return [controller.dataSource numberOfPagesInPageController:controller];
+    } else {
+        return controller.viewControllers.count;
+    }
+}
+
+- (UIViewController *)viewControllerAtIndex:(NSInteger)index {
+    UIViewController* result = _controllerCache[@(index)];
+    if (result == nil) {
+        YTPageController* controller = _controller;
+        if (controller.dataSource) {
+            result = [controller.dataSource pageController:controller pageAtIndex:index];
+        } else {
+            result = controller.viewControllers[index];
+        }
+        _controllerCache[@(index)] = result;
+    }
+    return result;
+}
+
+- (void)removeViewControllerAtIndex:(NSInteger)index {
+    UIViewController* controller = _controllerCache[@(index)];
+    if (controller) {
+        [controller willMoveToParentViewController:nil];
+        [controller.view removeFromSuperview];
+        [controller removeFromParentViewController];
+        
+        [_controllerCache removeObjectForKey:@(index)];
+    }
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_controller _numberOfViewControllers];
+    return self.numberOfViewControllers;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     YTPageCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:YTPageCollectionCellIdentifier forIndexPath:indexPath];
-    UIViewController* page = [_controller _viewControllerAtIndex:indexPath.item];
+    
+    if (cell.indexPath) {
+        // Remove the old controller attached with the reused cell, if any.
+        [self removeViewControllerAtIndex:cell.indexPath.item];
+    }
+    
+    UIViewController* page = [self viewControllerAtIndex:indexPath.item];
     [cell configureWithViewController:page parentViewController:_controller];
+    cell.indexPath = indexPath;
+    
     return cell;
 }
 
@@ -493,12 +562,12 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     NSInteger _draggingTargetIndex;
 }
 
-+ (instancetype)delegateWithPageController:(YTPageController *)pageController {
-    _YTPageCollectionDelegate* delegate = [[self alloc] init];
-    if (delegate) {
-        delegate->_controller = pageController;
+- (instancetype)initWithPageController:(YTPageController *)pageController {
+    self = [super init];
+    if (self) {
+        _controller = pageController;
     }
-    return delegate;
+    return self;
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
@@ -538,7 +607,7 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
         if (ABS(relativeOffset - startOffset) > DBL_EPSILON) {
             // Start transition
             NSInteger newIndex = (NSInteger)(relativeOffset > startOffset ? ceil(relativeOffset) : floor(relativeOffset));
-            if (newIndex >= 0 && newIndex < [ctrl _numberOfViewControllers]) {
+            if (newIndex >= 0 && newIndex < ctrl._collectionViewDataSource.numberOfViewControllers) {
                 if (ABS(ctrl.currentIndex - newIndex) > 1) { // Sometimes the `currentIndex` will be out of sync
                     [ctrl _startTransitionToIndex:(ctrl.currentIndex > newIndex ? newIndex + 1 : newIndex - 1) reason:YTPageTransitionStartedProgrammically];
                     [ctrl _finishTransition:YES];
@@ -573,7 +642,7 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
         }
         
         if (overDragging) {
-            if (newIndex >= 0 && newIndex < [ctrl _numberOfViewControllers]) {
+            if (newIndex >= 0 && newIndex < ctrl._collectionViewDataSource.numberOfViewControllers) {
                 // Restart a new transition if progress not within (0, 1)
                 [ctrl _finishTransition];
                 [ctrl _startTransitionToIndex:newIndex reason:YTPageTransitionStartedByUser];
@@ -587,34 +656,18 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 @end
 
 
-@implementation YTPageCollectionViewCell {
-    UIViewController* _controller;
-}
+@implementation YTPageCollectionViewCell
 
 - (void)configureWithViewController:(UIViewController *)childVC parentViewController:(UIViewController *)parentVC {
-    [self cleanUpChildViewController];
-    
     [parentVC addChildViewController:childVC];
     [self.contentView addSubview:childVC.view];
     childVC.view.frame = self.contentView.bounds;
     childVC.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [childVC didMoveToParentViewController:parentVC];
-    
-    _controller = childVC;
 }
 
 - (void)prepareForReuse {
     [super prepareForReuse];
-    [self cleanUpChildViewController];
-}
-
-- (void)cleanUpChildViewController {
-    if (_controller.view.superview == self.contentView) { // Ignore any view controller that is not `managed` by this cell
-        [_controller willMoveToParentViewController:nil];
-        [_controller.view removeFromSuperview];
-        [_controller removeFromParentViewController];
-    }
-    _controller = nil;
 }
 
 @end
