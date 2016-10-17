@@ -53,19 +53,21 @@ NSString* const YTPageControllerSegueIdentifierPrefix = @"YTPage";
 - (void)ytp_awakeFromNib {
     [self ytp_awakeFromNib];
     
-    BOOL hasNext = YES;
-    NSInteger index = 0;
-    while (hasNext) {
-        @try {
-            NSString* identifier = [NSString stringWithFormat:@"%@_%zd", YTPageControllerSegueIdentifierPrefix, index];
-            [self performSegueWithIdentifier:identifier sender:nil];
-        } @catch (NSException *exception) {
-            if (exception.name == NSInvalidArgumentException) {
-                hasNext = NO;
-            }
-        } @finally {
-            index ++;
+    NSArray* segueTemplates = [self valueForKey:@"storyboardSegueTemplates"];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", [NSString stringWithFormat:@"^%@_\\d+$", YTPageControllerSegueIdentifierPrefix]];
+    NSMutableArray<NSString*>* truncatedIDs = [NSMutableArray array];
+    for (id template in segueTemplates) {
+        NSString* identifier = [template valueForKey:@"identifier"];
+        if ([predicate evaluateWithObject:identifier]) {
+            [truncatedIDs addObject:[identifier substringFromIndex:YTPageControllerSegueIdentifierPrefix.length + 1]];
         }
+    }
+    [truncatedIDs sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [@([obj1 integerValue]) compare:@([obj2 integerValue])];
+    }];
+    for (NSString* truncatedID in truncatedIDs) {
+        NSString* identifier = [NSString stringWithFormat:@"%@_%@", YTPageControllerSegueIdentifierPrefix, truncatedID];
+        [self performSegueWithIdentifier:identifier sender:nil];
     }
 }
 
