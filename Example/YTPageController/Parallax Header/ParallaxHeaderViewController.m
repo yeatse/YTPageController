@@ -155,8 +155,8 @@
 
 #pragma mark - YTPageControllerDelegate
 
-- (void)pageController:(YTPageController *)pageController willTransitionToIndex:(NSInteger)index {
-    [self synchronizeTableViewAtIndex:index];
+- (void)pageController:(YTPageController *)pageController willStartTransition:(id<YTPageTransitionContext>)context {
+    [self synchronizeTableViewAtIndex:[context toIndex]];
     
     [pageController.pageCoordinator animateAlongsidePagingInView:_segmentedControl animation:^(id<YTPageTransitionContext>  _Nonnull context) {
         _segmentedControl.selectedSegmentIndex = [context toIndex];

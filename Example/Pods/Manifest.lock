@@ -1,7 +1,11 @@
 PODS:
-  - YTPageController (0.1.0)
+  - AKASegmentedControl (1.0.5)
+  - BetterSegmentedControl (0.5)
+  - YTPageController (0.4.0)
 
 DEPENDENCIES:
+  - AKASegmentedControl
+  - BetterSegmentedControl
   - YTPageController (from `../`)
 
 EXTERNAL SOURCES:
@@ -9,8 +13,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  YTPageController: 2d04edae4e47b94697f9e3d9f8ffe2e2716b2bcf
+  AKASegmentedControl: b98249ce1d319cc1971f9f78172173fd90c5f4d5
+  BetterSegmentedControl: db74c56602e418e9eca8f6340e0ed0a7215f5f7c
+  YTPageController: 327d176ba257a575cefbcfdb0ab7ed60acb6d345
 
-PODFILE CHECKSUM: 33288a4a78a82a1dcec8209b8eaf285abcc61607
+PODFILE CHECKSUM: 5d9e043357d064768774e31e46ee3e3d5aa66639
 
-COCOAPODS: 1.1.0.beta.2
+COCOAPODS: 1.1.0.rc.2

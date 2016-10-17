@@ -7,72 +7,122 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02385909864BFDFFFF4373CED2DEE488 /* AKASegmentedControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 12983409AF352481E66B39D4726147D2 /* AKASegmentedControl-dummy.m */; };
+		07F4B30E5394DC7CA3228FD4D1AB1080 /* BetterSegmentedControl-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BF30DBBFCFEAE555D6FCABD6F03ED /* BetterSegmentedControl-dummy.m */; };
+		0926A4FAD346FB03F4B2CFAE9476FB98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		114BF6039D596D7EF0F0C2FEE9E98EF3 /* BetterSegmentedControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 89A0A466F70131DCAE5FF40C939FE2E4 /* BetterSegmentedControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		158448D108A9F100AE5FC927F840E94F /* Pods-YTPageController_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2D5298CDC9929654766FAD4459E00EC /* Pods-YTPageController_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		253C182FD669436E8307E5C66506FFFF /* YTPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = CF4E5123B05EEDCC67C96FDCB1067921 /* YTPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		357B7B5307319ED92EB1DE5EB06842F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		36D2714B60A3DFB6C285BD82DBBBF20C /* Pods-YTPageController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A2AD013EAC0CA4E3F4C0F217359E9F /* Pods-YTPageController_Example-dummy.m */; };
+		1ABBCDF4ACE638579A22EB3079CEBC33 /* YTPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660A994B97187F8076741400851C4419 /* YTPageController.m */; };
 		4227C96AEDD28696F4BA0BE45FBA4113 /* Pods-YTPageController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F741CA8F205170B734F0EB2A13CC44 /* Pods-YTPageController_Tests-dummy.m */; };
-		4A55B59FC3EF850508339FADF4059A4D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		4CCCFEE860058E7E1A0FCC4E122834DD /* Pods-YTPageController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A2AD013EAC0CA4E3F4C0F217359E9F /* Pods-YTPageController_Example-dummy.m */; };
 		5CC67946D100225BB0E3DFC6FE9CAA5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		718611811DA643F1FF676D81B238E747 /* YTPageController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9643D1594FC0E02FF45D81D2B1707C81 /* YTPageController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7232605917D4E624774A737B7FE5C2ED /* YTPageController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C125E5F11B5394C88FD08AF1F96DC663 /* YTPageController-dummy.m */; };
-		7704B38360A1D2D4CC7C3C67D61651DF /* YTPageControllerSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 906AB7E5A16EF3E4BB7D72C5F1A09891 /* YTPageControllerSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8666198E22C51B9C2E3CF8A4B47564A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
-		B94B0F7219321042D3370C9EAE4F3ED1 /* YTPageControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0175FFF76E0738BFD9536DF7303D09 /* YTPageControllerSegue.m */; };
-		ED33B19B54380A143F4B9FE20041E182 /* Pods-YTPageController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD4090ABE79F8C09EF228333264DAE60 /* Pods-YTPageController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB3111BF39D63B3AB0D3F9BAA9A803B0 /* YTPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 660A994B97187F8076741400851C4419 /* YTPageController.m */; };
+		63DA6942992BB3122A1CF57068BF7603 /* YTPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = CF4E5123B05EEDCC67C96FDCB1067921 /* YTPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B6CB3478434A3FDB1651CDB95A92062 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		870E3E4C64219F458B3E9DF135888117 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
+		8734738997658CE1EFFB3216CEF06A58 /* AKASegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5DD4E24055252551BE860FBFE92042 /* AKASegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		899AEA536C4D5E5E01BA2FA30C458B32 /* Pods-YTPageController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD4090ABE79F8C09EF228333264DAE60 /* Pods-YTPageController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95F706F9B81A855D265C2072EAA787BC /* YTPageControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0175FFF76E0738BFD9536DF7303D09 /* YTPageControllerSegue.m */; };
+		9B8001032D26D05EA9E823445D492CFA /* YTPageController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C125E5F11B5394C88FD08AF1F96DC663 /* YTPageController-dummy.m */; };
+		A87AFAC744709926573982EDDF2DD57F /* BetterSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684FF29C06E07671F43AFDF8ACD775BF /* BetterSegmentedControl.swift */; };
+		B816737B45458278CAAAE5F200312EA2 /* YTPageController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9643D1594FC0E02FF45D81D2B1707C81 /* YTPageController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE140033011D3A992C0CE1EA5468DAC4 /* AKASegmentedControl-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A7904C97B1C98A0E949362345D8C56E2 /* AKASegmentedControl-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC44F396E21D6F59083E8314B6E470A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		D03AC03728E90A385441D137D10E2990 /* AKASegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A54E5F8E992247AC00E0228C1C92D215 /* AKASegmentedControl.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D83F6642B4FBE9793224CCAADBB30747 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
+		DEEADB5CCEE83EAEA900976942460411 /* YTPageControllerSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = 906AB7E5A16EF3E4BB7D72C5F1A09891 /* YTPageControllerSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E85DD0E898247D8EEF7E39A904888A05 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		87FC20AC7B79EDACDD1FB25BD53EDD2B /* PBXContainerItemProxy */ = {
+		030395D21D368ADBB644D46E13BED969 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 42FB9DD1E4B1691B87818D10C5E68814;
+			remoteGlobalIDString = 3C068A58B0DECF71FC3B64A1C1B68BBC;
+			remoteInfo = BetterSegmentedControl;
+		};
+		4CD02009F8DD9CFA65958C60B6B27DDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A3E0DC1B58F40FE3C4DF5D7F80C28E2;
+			remoteInfo = AKASegmentedControl;
+		};
+		6101D634B577C23939FF2C580CAAADD6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A43C35E9BA5B5D03B22A9EF3C8791671;
 			remoteInfo = YTPageController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01C022E3398D54B0B8194614F894A4B4 /* BetterSegmentedControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BetterSegmentedControl.xcconfig; sourceTree = "<group>"; };
 		0E1794F345AD61D30F4EE68C86E93681 /* Pods-YTPageController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YTPageController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		0F48AFA8CC7E05D53C2CA5D7B5C33C43 /* Pods-YTPageController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YTPageController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		12983409AF352481E66B39D4726147D2 /* AKASegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AKASegmentedControl-dummy.m"; sourceTree = "<group>"; };
 		1C0078082CD46DB78C0B33B80141969E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3095FA13B199556DDC48968DFE05C1FA /* Pods_YTPageController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTPageController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2763151813A0FEC1E19C14CC45A966B4 /* Pods_YTPageController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTPageController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F2FAACE4E68BD30E75F5F2FCB9AB41 /* Pods-YTPageController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YTPageController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3785F588D052690BA00F057674847578 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46F741CA8F205170B734F0EB2A13CC44 /* Pods-YTPageController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YTPageController_Tests-dummy.m"; sourceTree = "<group>"; };
 		48443CAF77BDEF4D9C579471180CB42D /* Pods-YTPageController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YTPageController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		4DB4C8449F660669B9F0052DA3CF3D1A /* AKASegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AKASegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		591A2BD64693398C3CC5A2E7581DA03C /* Pods-YTPageController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YTPageController_Example-frameworks.sh"; sourceTree = "<group>"; };
 		5A53416FA6D5F29FF49BA7F02CEFB5FF /* YTPageController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YTPageController.xcconfig; sourceTree = "<group>"; };
-		61015F9AFB83282327E7AABC61654F09 /* YTPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YTPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62102D4B077EFA1D8F4A2E7C9380DFCE /* Pods-YTPageController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YTPageController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		632FBAB8BA3517C819D988FC5966FECE /* Pods-YTPageController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YTPageController_Example.release.xcconfig"; sourceTree = "<group>"; };
 		660A994B97187F8076741400851C4419 /* YTPageController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YTPageController.m; sourceTree = "<group>"; };
+		684FF29C06E07671F43AFDF8ACD775BF /* BetterSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BetterSegmentedControl.swift; path = Pod/Classes/BetterSegmentedControl.swift; sourceTree = "<group>"; };
+		6894961ABB4DE0E274131F05AB0EFF9B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F890BD5DDB75E922BF7E381EB7B47F3 /* Pods_YTPageController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTPageController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		727298732A468574F636CBE51457B95B /* BetterSegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BetterSegmentedControl-prefix.pch"; sourceTree = "<group>"; };
 		7605E2CF8DEF5D9D1FAD58C21A87798B /* YTPageController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YTPageController-prefix.pch"; sourceTree = "<group>"; };
 		80E1536EB16C9140A54AC9997921F25A /* Pods-YTPageController_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YTPageController_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		85C9249631C8ECAC52B51C0CF6AF5814 /* Pods-YTPageController_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YTPageController_Tests-resources.sh"; sourceTree = "<group>"; };
+		89A0A466F70131DCAE5FF40C939FE2E4 /* BetterSegmentedControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BetterSegmentedControl-umbrella.h"; sourceTree = "<group>"; };
+		89A403D274DA54D74EA981A14AA8635D /* YTPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YTPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		906AB7E5A16EF3E4BB7D72C5F1A09891 /* YTPageControllerSegue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YTPageControllerSegue.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94CF814C2DD0B7B53C915162693C01C0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94DC5C8774A5D18948F84707DBE9120A /* AKASegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AKASegmentedControl.modulemap; sourceTree = "<group>"; };
 		9643D1594FC0E02FF45D81D2B1707C81 /* YTPageController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YTPageController-umbrella.h"; sourceTree = "<group>"; };
+		97101557507A88FD7EA3DBCC73F5813A /* AKASegmentedControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AKASegmentedControl.xcconfig; sourceTree = "<group>"; };
+		9E5DD4E24055252551BE860FBFE92042 /* AKASegmentedControl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AKASegmentedControl.h; path = AKASegmentedControl/AKASegmentedControl.h; sourceTree = "<group>"; };
 		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A54E5F8E992247AC00E0228C1C92D215 /* AKASegmentedControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AKASegmentedControl.m; path = AKASegmentedControl/AKASegmentedControl.m; sourceTree = "<group>"; };
+		A7904C97B1C98A0E949362345D8C56E2 /* AKASegmentedControl-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AKASegmentedControl-umbrella.h"; sourceTree = "<group>"; };
 		AD4090ABE79F8C09EF228333264DAE60 /* Pods-YTPageController_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YTPageController_Example-umbrella.h"; sourceTree = "<group>"; };
+		B5A3228EFED262C9F279DA3CF99602D6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B921FDD5F61F9519D8D23663A7D41964 /* Pods-YTPageController_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YTPageController_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		BB561EE9992A8C68E135C3CFD9D465C1 /* Pods_YTPageController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YTPageController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB03848A9871DD8927292AD157439C48 /* BetterSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BetterSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C125E5F11B5394C88FD08AF1F96DC663 /* YTPageController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YTPageController-dummy.m"; sourceTree = "<group>"; };
 		CD0175FFF76E0738BFD9536DF7303D09 /* YTPageControllerSegue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YTPageControllerSegue.m; sourceTree = "<group>"; };
+		CD9BF30DBBFCFEAE555D6FCABD6F03ED /* BetterSegmentedControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BetterSegmentedControl-dummy.m"; sourceTree = "<group>"; };
 		CF4E5123B05EEDCC67C96FDCB1067921 /* YTPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YTPageController.h; sourceTree = "<group>"; };
 		D3800286FA31B9BBCD77063118A56CFF /* Pods-YTPageController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-YTPageController_Example.modulemap"; sourceTree = "<group>"; };
 		DBE32FBC0DF82FFBB4F803D6EB379AF1 /* Pods-YTPageController_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YTPageController_Example-resources.sh"; sourceTree = "<group>"; };
 		DED7986E30A0732DD794ED9B76DFFCA7 /* Pods-YTPageController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YTPageController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		E1BEF40041A0D7EA92C20572F15B2394 /* AKASegmentedControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AKASegmentedControl-prefix.pch"; sourceTree = "<group>"; };
 		E86668F20F252C440D1015B816BE59C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		F2D5298CDC9929654766FAD4459E00EC /* Pods-YTPageController_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YTPageController_Tests-umbrella.h"; sourceTree = "<group>"; };
 		F50EE4FCE47EDFA6710EAA87025301DB /* Pods-YTPageController_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-YTPageController_Tests.modulemap"; sourceTree = "<group>"; };
 		F5A2AD013EAC0CA4E3F4C0F217359E9F /* Pods-YTPageController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YTPageController_Example-dummy.m"; sourceTree = "<group>"; };
 		F8C3E70CB09E88A29CFB73E9C1ACD046 /* YTPageController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = YTPageController.modulemap; sourceTree = "<group>"; };
+		FDA59756D7A32357FA700A1054DD48CF /* BetterSegmentedControl.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BetterSegmentedControl.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0103CC044372BFB2F11C9AE4D985BCC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D83F6642B4FBE9793224CCAADBB30747 /* Foundation.framework in Frameworks */,
+				870E3E4C64219F458B3E9DF135888117 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		286665AA52BF96F0B231CE7C3207317E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -81,20 +131,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B3C2D32DFB8A1857591D173D9B178459 /* Frameworks */ = {
+		3D9AA0BF29F4CBD222F4A4A2660763A0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8666198E22C51B9C2E3CF8A4B47564A5 /* Foundation.framework in Frameworks */,
-				4A55B59FC3EF850508339FADF4059A4D /* UIKit.framework in Frameworks */,
+				CC44F396E21D6F59083E8314B6E470A4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BF5F5AE2ABC3276BB0B4D5356F88BAF3 /* Frameworks */ = {
+		42F03DD4714CF0C77DB3C4C52030E921 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				357B7B5307319ED92EB1DE5EB06842F3 /* Foundation.framework in Frameworks */,
+				0926A4FAD346FB03F4B2CFAE9476FB98 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		634979A5FD4B5223C05476E00F6E7F83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B6CB3478434A3FDB1651CDB95A92062 /* Foundation.framework in Frameworks */,
+				E85DD0E898247D8EEF7E39A904888A05 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,15 +206,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6B401DAE4C57ED1B8AC8F0EADD19558D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FDA59756D7A32357FA700A1054DD48CF /* BetterSegmentedControl.modulemap */,
+				01C022E3398D54B0B8194614F894A4B4 /* BetterSegmentedControl.xcconfig */,
+				CD9BF30DBBFCFEAE555D6FCABD6F03ED /* BetterSegmentedControl-dummy.m */,
+				727298732A468574F636CBE51457B95B /* BetterSegmentedControl-prefix.pch */,
+				89A0A466F70131DCAE5FF40C939FE2E4 /* BetterSegmentedControl-umbrella.h */,
+				6894961ABB4DE0E274131F05AB0EFF9B /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BetterSegmentedControl";
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				B06F55614D2939132594D578D09CD0A7 /* Development Pods */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				B7D0A06CA855D1E65F3223AE3075A7E2 /* Products */,
+				C00F1BD02E06B82EF381B3EA3FCB0871 /* Pods */,
+				F6478B9D3F0B867D8E866809C51716F3 /* Products */,
 				F541F59BEFC750BA26722E184406FC97 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		AAE14666A675D05AF563CD3C712774C9 /* AKASegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				9E5DD4E24055252551BE860FBFE92042 /* AKASegmentedControl.h */,
+				A54E5F8E992247AC00E0228C1C92D215 /* AKASegmentedControl.m */,
+				BF9F185A75B52AAB228491F13C6554B3 /* Support Files */,
+			);
+			path = AKASegmentedControl;
 			sourceTree = "<group>";
 		};
 		B06F55614D2939132594D578D09CD0A7 /* Development Pods */ = {
@@ -167,14 +250,27 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		B7D0A06CA855D1E65F3223AE3075A7E2 /* Products */ = {
+		BF9F185A75B52AAB228491F13C6554B3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				3095FA13B199556DDC48968DFE05C1FA /* Pods_YTPageController_Example.framework */,
-				BB561EE9992A8C68E135C3CFD9D465C1 /* Pods_YTPageController_Tests.framework */,
-				61015F9AFB83282327E7AABC61654F09 /* YTPageController.framework */,
+				94DC5C8774A5D18948F84707DBE9120A /* AKASegmentedControl.modulemap */,
+				97101557507A88FD7EA3DBCC73F5813A /* AKASegmentedControl.xcconfig */,
+				12983409AF352481E66B39D4726147D2 /* AKASegmentedControl-dummy.m */,
+				E1BEF40041A0D7EA92C20572F15B2394 /* AKASegmentedControl-prefix.pch */,
+				A7904C97B1C98A0E949362345D8C56E2 /* AKASegmentedControl-umbrella.h */,
+				B5A3228EFED262C9F279DA3CF99602D6 /* Info.plist */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/AKASegmentedControl";
+			sourceTree = "<group>";
+		};
+		C00F1BD02E06B82EF381B3EA3FCB0871 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAE14666A675D05AF563CD3C712774C9 /* AKASegmentedControl */,
+				FE4879060D92A50BAD2283C800C1AF5C /* BetterSegmentedControl */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D84AD7614E49CAE4690AAE9AA0F32C99 /* Pods-YTPageController_Tests */ = {
@@ -227,6 +323,18 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		F6478B9D3F0B867D8E866809C51716F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DB4C8449F660669B9F0052DA3CF3D1A /* AKASegmentedControl.framework */,
+				BB03848A9871DD8927292AD157439C48 /* BetterSegmentedControl.framework */,
+				2763151813A0FEC1E19C14CC45A966B4 /* Pods_YTPageController_Example.framework */,
+				6F890BD5DDB75E922BF7E381EB7B47F3 /* Pods_YTPageController_Tests.framework */,
+				89A403D274DA54D74EA981A14AA8635D /* YTPageController.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		FB6FE574631F141ACCFD727CDE01AF79 /* YTPageController */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,9 +343,28 @@
 			path = YTPageController;
 			sourceTree = "<group>";
 		};
+		FE4879060D92A50BAD2283C800C1AF5C /* BetterSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				684FF29C06E07671F43AFDF8ACD775BF /* BetterSegmentedControl.swift */,
+				6B401DAE4C57ED1B8AC8F0EADD19558D /* Support Files */,
+			);
+			path = BetterSegmentedControl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		13DCE7959C122B41A253378534ADA623 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B816737B45458278CAAAE5F200312EA2 /* YTPageController-umbrella.h in Headers */,
+				63DA6942992BB3122A1CF57068BF7603 /* YTPageController.h in Headers */,
+				DEEADB5CCEE83EAEA900976942460411 /* YTPageControllerSegue.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2B89848A2AF6791491288C2CA0E2D666 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,34 +373,75 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		66EC725D3A7D981EEE4BDA6F39229B68 /* Headers */ = {
+		3031F0F552C9EAF1F8AEB9CA01309098 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED33B19B54380A143F4B9FE20041E182 /* Pods-YTPageController_Example-umbrella.h in Headers */,
+				899AEA536C4D5E5E01BA2FA30C458B32 /* Pods-YTPageController_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B732D02FE2B6A34CEFB8942EAF89FC76 /* Headers */ = {
+		A24FA530FF3F110AD3C7E99D6A174E86 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				718611811DA643F1FF676D81B238E747 /* YTPageController-umbrella.h in Headers */,
-				253C182FD669436E8307E5C66506FFFF /* YTPageController.h in Headers */,
-				7704B38360A1D2D4CC7C3C67D61651DF /* YTPageControllerSegue.h in Headers */,
+				BE140033011D3A992C0CE1EA5468DAC4 /* AKASegmentedControl-umbrella.h in Headers */,
+				8734738997658CE1EFFB3216CEF06A58 /* AKASegmentedControl.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C866606C5DAE2E7DA0786C5BF435E715 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				114BF6039D596D7EF0F0C2FEE9E98EF3 /* BetterSegmentedControl-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		42FB9DD1E4B1691B87818D10C5E68814 /* YTPageController */ = {
+		1A3E0DC1B58F40FE3C4DF5D7F80C28E2 /* AKASegmentedControl */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99ECB7BF385EA76C552D07B4C3CDA10D /* Build configuration list for PBXNativeTarget "YTPageController" */;
+			buildConfigurationList = FAF9645F5F09F49277556D65B332CC04 /* Build configuration list for PBXNativeTarget "AKASegmentedControl" */;
 			buildPhases = (
-				A7CB5B04BE07000741895D6C85ED2956 /* Sources */,
-				B3C2D32DFB8A1857591D173D9B178459 /* Frameworks */,
-				B732D02FE2B6A34CEFB8942EAF89FC76 /* Headers */,
+				C43688823F13116484310611AF6852AC /* Sources */,
+				3D9AA0BF29F4CBD222F4A4A2660763A0 /* Frameworks */,
+				A24FA530FF3F110AD3C7E99D6A174E86 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AKASegmentedControl;
+			productName = AKASegmentedControl;
+			productReference = 4DB4C8449F660669B9F0052DA3CF3D1A /* AKASegmentedControl.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3C068A58B0DECF71FC3B64A1C1B68BBC /* BetterSegmentedControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C76A3E4E82F68789ED0233C2E2EAFCEB /* Build configuration list for PBXNativeTarget "BetterSegmentedControl" */;
+			buildPhases = (
+				8A479B274B97BE310E7B3029EAC0E683 /* Sources */,
+				634979A5FD4B5223C05476E00F6E7F83 /* Frameworks */,
+				C866606C5DAE2E7DA0786C5BF435E715 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BetterSegmentedControl;
+			productName = BetterSegmentedControl;
+			productReference = BB03848A9871DD8927292AD157439C48 /* BetterSegmentedControl.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A43C35E9BA5B5D03B22A9EF3C8791671 /* YTPageController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 341420C872C3270535B1988D922359C8 /* Build configuration list for PBXNativeTarget "YTPageController" */;
+			buildPhases = (
+				8402AFD945E2A692DC562D48BB710BF3 /* Sources */,
+				0103CC044372BFB2F11C9AE4D985BCC7 /* Frameworks */,
+				13DCE7959C122B41A253378534ADA623 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -281,25 +449,27 @@
 			);
 			name = YTPageController;
 			productName = YTPageController;
-			productReference = 61015F9AFB83282327E7AABC61654F09 /* YTPageController.framework */;
+			productReference = 89A403D274DA54D74EA981A14AA8635D /* YTPageController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		99C8A4D51FBD8173452FF6058585928C /* Pods-YTPageController_Example */ = {
+		B49900561335A7B4F0269016C5E777B0 /* Pods-YTPageController_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6BDC1C75259ABD1FD3B07C91F6174968 /* Build configuration list for PBXNativeTarget "Pods-YTPageController_Example" */;
+			buildConfigurationList = 97EC152A7A155697F05BB21F3974F3BD /* Build configuration list for PBXNativeTarget "Pods-YTPageController_Example" */;
 			buildPhases = (
-				AFE1122007BE8F5B1F156CA3FDF83919 /* Sources */,
-				BF5F5AE2ABC3276BB0B4D5356F88BAF3 /* Frameworks */,
-				66EC725D3A7D981EEE4BDA6F39229B68 /* Headers */,
+				BF55D9177152E7F23CCBC63AFDC181CA /* Sources */,
+				42F03DD4714CF0C77DB3C4C52030E921 /* Frameworks */,
+				3031F0F552C9EAF1F8AEB9CA01309098 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B4D6A5AF06F195C6AF32CC2C6B6C3F3C /* PBXTargetDependency */,
+				D4CFA083E7FA2D6B4E3FC9196F1C8630 /* PBXTargetDependency */,
+				032CEFA3A0EDF0E2D5625303448B43D8 /* PBXTargetDependency */,
+				6D6496D828E9CB1CFE3DCA19E374F1DA /* PBXTargetDependency */,
 			);
 			name = "Pods-YTPageController_Example";
 			productName = "Pods-YTPageController_Example";
-			productReference = 3095FA13B199556DDC48968DFE05C1FA /* Pods_YTPageController_Example.framework */;
+			productReference = 2763151813A0FEC1E19C14CC45A966B4 /* Pods_YTPageController_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EB1B57A2A323D61CA12B780DB58DEFD8 /* Pods-YTPageController_Tests */ = {
@@ -316,7 +486,7 @@
 			);
 			name = "Pods-YTPageController_Tests";
 			productName = "Pods-YTPageController_Tests";
-			productReference = BB561EE9992A8C68E135C3CFD9D465C1 /* Pods_YTPageController_Tests.framework */;
+			productReference = 6F890BD5DDB75E922BF7E381EB7B47F3 /* Pods_YTPageController_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -336,13 +506,15 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = B7D0A06CA855D1E65F3223AE3075A7E2 /* Products */;
+			productRefGroup = F6478B9D3F0B867D8E866809C51716F3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				99C8A4D51FBD8173452FF6058585928C /* Pods-YTPageController_Example */,
+				1A3E0DC1B58F40FE3C4DF5D7F80C28E2 /* AKASegmentedControl */,
+				3C068A58B0DECF71FC3B64A1C1B68BBC /* BetterSegmentedControl */,
+				B49900561335A7B4F0269016C5E777B0 /* Pods-YTPageController_Example */,
 				EB1B57A2A323D61CA12B780DB58DEFD8 /* Pods-YTPageController_Tests */,
-				42FB9DD1E4B1691B87818D10C5E68814 /* YTPageController */,
+				A43C35E9BA5B5D03B22A9EF3C8791671 /* YTPageController */,
 			);
 		};
 /* End PBXProject section */
@@ -356,39 +528,69 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A7CB5B04BE07000741895D6C85ED2956 /* Sources */ = {
+		8402AFD945E2A692DC562D48BB710BF3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7232605917D4E624774A737B7FE5C2ED /* YTPageController-dummy.m in Sources */,
-				FB3111BF39D63B3AB0D3F9BAA9A803B0 /* YTPageController.m in Sources */,
-				B94B0F7219321042D3370C9EAE4F3ED1 /* YTPageControllerSegue.m in Sources */,
+				9B8001032D26D05EA9E823445D492CFA /* YTPageController-dummy.m in Sources */,
+				1ABBCDF4ACE638579A22EB3079CEBC33 /* YTPageController.m in Sources */,
+				95F706F9B81A855D265C2072EAA787BC /* YTPageControllerSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AFE1122007BE8F5B1F156CA3FDF83919 /* Sources */ = {
+		8A479B274B97BE310E7B3029EAC0E683 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36D2714B60A3DFB6C285BD82DBBBF20C /* Pods-YTPageController_Example-dummy.m in Sources */,
+				07F4B30E5394DC7CA3228FD4D1AB1080 /* BetterSegmentedControl-dummy.m in Sources */,
+				A87AFAC744709926573982EDDF2DD57F /* BetterSegmentedControl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF55D9177152E7F23CCBC63AFDC181CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CCCFEE860058E7E1A0FCC4E122834DD /* Pods-YTPageController_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C43688823F13116484310611AF6852AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02385909864BFDFFFF4373CED2DEE488 /* AKASegmentedControl-dummy.m in Sources */,
+				D03AC03728E90A385441D137D10E2990 /* AKASegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B4D6A5AF06F195C6AF32CC2C6B6C3F3C /* PBXTargetDependency */ = {
+		032CEFA3A0EDF0E2D5625303448B43D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BetterSegmentedControl;
+			target = 3C068A58B0DECF71FC3B64A1C1B68BBC /* BetterSegmentedControl */;
+			targetProxy = 030395D21D368ADBB644D46E13BED969 /* PBXContainerItemProxy */;
+		};
+		6D6496D828E9CB1CFE3DCA19E374F1DA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = YTPageController;
-			target = 42FB9DD1E4B1691B87818D10C5E68814 /* YTPageController */;
-			targetProxy = 87FC20AC7B79EDACDD1FB25BD53EDD2B /* PBXContainerItemProxy */;
+			target = A43C35E9BA5B5D03B22A9EF3C8791671 /* YTPageController */;
+			targetProxy = 6101D634B577C23939FF2C580CAAADD6 /* PBXContainerItemProxy */;
+		};
+		D4CFA083E7FA2D6B4E3FC9196F1C8630 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AKASegmentedControl;
+			target = 1A3E0DC1B58F40FE3C4DF5D7F80C28E2 /* AKASegmentedControl */;
+			targetProxy = 4CD02009F8DD9CFA65958C60B6B27DDC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2B1057861A054EBE2C33D38EDDE3515A /* Release */ = {
+		034F10FC6F5447F96FC8E1823022E807 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A53416FA6D5F29FF49BA7F02CEFB5FF /* YTPageController.xcconfig */;
+			baseConfigurationReference = 01C022E3398D54B0B8194614F894A4B4 /* BetterSegmentedControl.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -401,23 +603,89 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/YTPageController/YTPageController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/YTPageController/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/BetterSegmentedControl/BetterSegmentedControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BetterSegmentedControl/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/YTPageController/YTPageController.modulemap";
+				MODULEMAP_FILE = "Target Support Files/BetterSegmentedControl/BetterSegmentedControl.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = YTPageController;
+				PRODUCT_NAME = BetterSegmentedControl;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		6751A6CA13861B97E2B94EAC0F3E5C1C /* Release */ = {
+		147CC4AED0FA50383858FF5766012C8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97101557507A88FD7EA3DBCC73F5813A /* AKASegmentedControl.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AKASegmentedControl/AKASegmentedControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AKASegmentedControl/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AKASegmentedControl/AKASegmentedControl.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = AKASegmentedControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3E345F063AB9909BEEB239A4EC16BD1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01C022E3398D54B0B8194614F894A4B4 /* BetterSegmentedControl.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/BetterSegmentedControl/BetterSegmentedControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BetterSegmentedControl/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BetterSegmentedControl/BetterSegmentedControl.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = BetterSegmentedControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6EA5F9CDB09E35D1C7B226A1EDA64339 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 632FBAB8BA3517C819D988FC5966FECE /* Pods-YTPageController_Example.release.xcconfig */;
 			buildSettings = {
@@ -606,7 +874,39 @@
 			};
 			name = Debug;
 		};
-		D1E4BE42B89FC83CFBBEAD78C80CBC15 /* Debug */ = {
+		C8111FA8BC2774E31DDBA3D4E68B56DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97101557507A88FD7EA3DBCC73F5813A /* AKASegmentedControl.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AKASegmentedControl/AKASegmentedControl-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AKASegmentedControl/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AKASegmentedControl/AKASegmentedControl.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AKASegmentedControl;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D700C4854172003E2EBD913E0AEAA16A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 62102D4B077EFA1D8F4A2E7C9380DFCE /* Pods-YTPageController_Example.debug.xcconfig */;
 			buildSettings = {
@@ -635,13 +935,46 @@
 				PRODUCT_NAME = Pods_YTPageController_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		DD901E86C26A6062353DB1436CFD5888 /* Debug */ = {
+		F30B3D749D30AC9D6D15A8321DE41611 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A53416FA6D5F29FF49BA7F02CEFB5FF /* YTPageController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/YTPageController/YTPageController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YTPageController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YTPageController/YTPageController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = YTPageController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FCFAE4F5255AE9292B623D959761F378 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A53416FA6D5F29FF49BA7F02CEFB5FF /* YTPageController.xcconfig */;
 			buildSettings = {
@@ -666,6 +999,7 @@
 				PRODUCT_NAME = YTPageController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -684,20 +1018,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6BDC1C75259ABD1FD3B07C91F6174968 /* Build configuration list for PBXNativeTarget "Pods-YTPageController_Example" */ = {
+		341420C872C3270535B1988D922359C8 /* Build configuration list for PBXNativeTarget "YTPageController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D1E4BE42B89FC83CFBBEAD78C80CBC15 /* Debug */,
-				6751A6CA13861B97E2B94EAC0F3E5C1C /* Release */,
+				FCFAE4F5255AE9292B623D959761F378 /* Debug */,
+				F30B3D749D30AC9D6D15A8321DE41611 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99ECB7BF385EA76C552D07B4C3CDA10D /* Build configuration list for PBXNativeTarget "YTPageController" */ = {
+		97EC152A7A155697F05BB21F3974F3BD /* Build configuration list for PBXNativeTarget "Pods-YTPageController_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD901E86C26A6062353DB1436CFD5888 /* Debug */,
-				2B1057861A054EBE2C33D38EDDE3515A /* Release */,
+				D700C4854172003E2EBD913E0AEAA16A /* Debug */,
+				6EA5F9CDB09E35D1C7B226A1EDA64339 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -707,6 +1041,24 @@
 			buildConfigurations = (
 				8D72BB5540E01114DE9308155766EAFC /* Debug */,
 				7F746B7CB1347243EFE4C1B05514781A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C76A3E4E82F68789ED0233C2E2EAFCEB /* Build configuration list for PBXNativeTarget "BetterSegmentedControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E345F063AB9909BEEB239A4EC16BD1D /* Debug */,
+				034F10FC6F5447F96FC8E1823022E807 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAF9645F5F09F49277556D65B332CC04 /* Build configuration list for PBXNativeTarget "AKASegmentedControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				147CC4AED0FA50383858FF5766012C8C /* Debug */,
+				C8111FA8BC2774E31DDBA3D4E68B56DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

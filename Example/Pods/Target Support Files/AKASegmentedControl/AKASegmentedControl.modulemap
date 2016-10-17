@@ -1,0 +1,6 @@
+framework module AKASegmentedControl {
+  umbrella header "AKASegmentedControl-umbrella.h"
+
+  export *
+  module * { export * }
+}

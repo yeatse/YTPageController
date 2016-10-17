@@ -11,13 +11,12 @@
 		385C7EA81D9815F700BEAD30 /* ParallaxHeader.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 385C7EA71D9815F700BEAD30 /* ParallaxHeader.storyboard */; };
 		385C7EAC1D981B4500BEAD30 /* ParallaxHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 385C7EAB1D981B4500BEAD30 /* ParallaxHeaderViewController.m */; };
 		38AD3E3E1D91519900AFC8E0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38AD3E3D1D91519900AFC8E0 /* Launch Screen.storyboard */; };
+		38B828BA1DB4ED1E0001A704 /* AKASegmentedControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B828B91DB4ED1E0001A704 /* AKASegmentedControl.storyboard */; };
+		38B828BE1DB4EE900001A704 /* AKASegmentedControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B828BD1DB4EE900001A704 /* AKASegmentedControlViewController.m */; };
+		38B828C01DB4F6820001A704 /* BetterSegmentedControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38B828BF1DB4F6820001A704 /* BetterSegmentedControl.storyboard */; };
+		38B828C41DB4F75D0001A704 /* BetterSegmentedControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B828C31DB4F75D0001A704 /* BetterSegmentedControlViewController.m */; };
 		38C5996D1D91875400CC7588 /* SegmentedControlTransition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C599661D91875400CC7588 /* SegmentedControlTransition.storyboard */; };
 		38C5996E1D91875400CC7588 /* SegmentedControlTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C599681D91875400CC7588 /* SegmentedControlTransitionDelegate.m */; };
-		38C5996F1D91875400CC7588 /* TabBarTransition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C5996A1D91875400CC7588 /* TabBarTransition.storyboard */; };
-		38C599701D91875400CC7588 /* TabBarTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C5996C1D91875400CC7588 /* TabBarTransitionDelegate.m */; };
-		38E1219D1D925C3D00376048 /* DynamicPages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E1219C1D925C3D00376048 /* DynamicPages.storyboard */; };
-		38E121A11D925C8F00376048 /* DynamicPagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E121A01D925C8F00376048 /* DynamicPagesViewController.m */; };
-		38E121A41D925D1F00376048 /* DynamicPagesChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E121A31D925D1F00376048 /* DynamicPagesChildViewController.m */; };
 		38E5D0A51D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E5D0A41D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.m */; };
 		38E5D0A81D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E5D0A71D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.m */; };
 		38E5D0B11D9A703100443CA3 /* ParallaxHeaderImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E5D0B01D9A703100443CA3 /* ParallaxHeaderImageViewController.m */; };
@@ -55,17 +54,15 @@
 		385C7EAA1D981B4500BEAD30 /* ParallaxHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxHeaderViewController.h; path = "Parallax Header/ParallaxHeaderViewController.h"; sourceTree = "<group>"; };
 		385C7EAB1D981B4500BEAD30 /* ParallaxHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxHeaderViewController.m; path = "Parallax Header/ParallaxHeaderViewController.m"; sourceTree = "<group>"; };
 		38AD3E3D1D91519900AFC8E0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		38B828B91DB4ED1E0001A704 /* AKASegmentedControl.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AKASegmentedControl.storyboard; path = "AKA Segmented Control/AKASegmentedControl.storyboard"; sourceTree = "<group>"; };
+		38B828BC1DB4EE900001A704 /* AKASegmentedControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AKASegmentedControlViewController.h; path = "AKA Segmented Control/AKASegmentedControlViewController.h"; sourceTree = "<group>"; };
+		38B828BD1DB4EE900001A704 /* AKASegmentedControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AKASegmentedControlViewController.m; path = "AKA Segmented Control/AKASegmentedControlViewController.m"; sourceTree = "<group>"; };
+		38B828BF1DB4F6820001A704 /* BetterSegmentedControl.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BetterSegmentedControl.storyboard; path = "Better Segmented Control/BetterSegmentedControl.storyboard"; sourceTree = "<group>"; };
+		38B828C21DB4F75D0001A704 /* BetterSegmentedControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BetterSegmentedControlViewController.h; path = "Better Segmented Control/BetterSegmentedControlViewController.h"; sourceTree = "<group>"; };
+		38B828C31DB4F75D0001A704 /* BetterSegmentedControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BetterSegmentedControlViewController.m; path = "Better Segmented Control/BetterSegmentedControlViewController.m"; sourceTree = "<group>"; };
 		38C599661D91875400CC7588 /* SegmentedControlTransition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SegmentedControlTransition.storyboard; sourceTree = "<group>"; };
 		38C599671D91875400CC7588 /* SegmentedControlTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedControlTransitionDelegate.h; sourceTree = "<group>"; };
 		38C599681D91875400CC7588 /* SegmentedControlTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedControlTransitionDelegate.m; sourceTree = "<group>"; };
-		38C5996A1D91875400CC7588 /* TabBarTransition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarTransition.storyboard; sourceTree = "<group>"; };
-		38C5996B1D91875400CC7588 /* TabBarTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarTransitionDelegate.h; sourceTree = "<group>"; };
-		38C5996C1D91875400CC7588 /* TabBarTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarTransitionDelegate.m; sourceTree = "<group>"; };
-		38E1219C1D925C3D00376048 /* DynamicPages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DynamicPages.storyboard; path = "Dynamic Pages/DynamicPages.storyboard"; sourceTree = "<group>"; };
-		38E1219F1D925C8F00376048 /* DynamicPagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicPagesViewController.h; path = "Dynamic Pages/DynamicPagesViewController.h"; sourceTree = "<group>"; };
-		38E121A01D925C8F00376048 /* DynamicPagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicPagesViewController.m; path = "Dynamic Pages/DynamicPagesViewController.m"; sourceTree = "<group>"; };
-		38E121A21D925D1F00376048 /* DynamicPagesChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicPagesChildViewController.h; path = "Dynamic Pages/DynamicPagesChildViewController.h"; sourceTree = "<group>"; };
-		38E121A31D925D1F00376048 /* DynamicPagesChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicPagesChildViewController.m; path = "Dynamic Pages/DynamicPagesChildViewController.m"; sourceTree = "<group>"; };
 		38E5D0A31D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxHeaderTableViewDataSource1.h; path = "Parallax Header/ParallaxHeaderTableViewDataSource1.h"; sourceTree = "<group>"; };
 		38E5D0A41D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxHeaderTableViewDataSource1.m; path = "Parallax Header/ParallaxHeaderTableViewDataSource1.m"; sourceTree = "<group>"; };
 		38E5D0A61D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxHeaderTableViewDataSource2.h; path = "Parallax Header/ParallaxHeaderTableViewDataSource2.h"; sourceTree = "<group>"; };
@@ -140,6 +137,26 @@
 			name = "Parallax Header";
 			sourceTree = "<group>";
 		};
+		38B828BB1DB4ED220001A704 /* AKASegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				38B828B91DB4ED1E0001A704 /* AKASegmentedControl.storyboard */,
+				38B828BC1DB4EE900001A704 /* AKASegmentedControlViewController.h */,
+				38B828BD1DB4EE900001A704 /* AKASegmentedControlViewController.m */,
+			);
+			name = AKASegmentedControl;
+			sourceTree = "<group>";
+		};
+		38B828C11DB4F6880001A704 /* BetterSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				38B828BF1DB4F6820001A704 /* BetterSegmentedControl.storyboard */,
+				38B828C21DB4F75D0001A704 /* BetterSegmentedControlViewController.h */,
+				38B828C31DB4F75D0001A704 /* BetterSegmentedControlViewController.m */,
+			);
+			name = BetterSegmentedControl;
+			sourceTree = "<group>";
+		};
 		38C599651D91875400CC7588 /* Segmented Control Transition */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,28 +165,6 @@
 				38C599681D91875400CC7588 /* SegmentedControlTransitionDelegate.m */,
 			);
 			path = "Segmented Control Transition";
-			sourceTree = "<group>";
-		};
-		38C599691D91875400CC7588 /* Tab Bar Transition */ = {
-			isa = PBXGroup;
-			children = (
-				38C5996A1D91875400CC7588 /* TabBarTransition.storyboard */,
-				38C5996B1D91875400CC7588 /* TabBarTransitionDelegate.h */,
-				38C5996C1D91875400CC7588 /* TabBarTransitionDelegate.m */,
-			);
-			path = "Tab Bar Transition";
-			sourceTree = "<group>";
-		};
-		38E1219E1D925C4100376048 /* Dynamic Pages */ = {
-			isa = PBXGroup;
-			children = (
-				38E1219C1D925C3D00376048 /* DynamicPages.storyboard */,
-				38E1219F1D925C8F00376048 /* DynamicPagesViewController.h */,
-				38E121A01D925C8F00376048 /* DynamicPagesViewController.m */,
-				38E121A21D925D1F00376048 /* DynamicPagesChildViewController.h */,
-				38E121A31D925D1F00376048 /* DynamicPagesChildViewController.m */,
-			);
-			name = "Dynamic Pages";
 			sourceTree = "<group>";
 		};
 		6003F581195388D10070C39A = {
@@ -212,8 +207,8 @@
 				6003F59C195388D20070C39A /* YTAppDelegate.h */,
 				6003F59D195388D20070C39A /* YTAppDelegate.m */,
 				38C599651D91875400CC7588 /* Segmented Control Transition */,
-				38C599691D91875400CC7588 /* Tab Bar Transition */,
-				38E1219E1D925C4100376048 /* Dynamic Pages */,
+				38B828BB1DB4ED220001A704 /* AKASegmentedControl */,
+				38B828C11DB4F6880001A704 /* BetterSegmentedControl */,
 				385C7EA91D9815FE00BEAD30 /* Parallax Header */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				38AD3E3D1D91519900AFC8E0 /* Launch Screen.storyboard */,
@@ -331,6 +326,7 @@
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = L6JP27B8YR;
+						LastSwiftMigration = 0800;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -362,13 +358,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				38C5996D1D91875400CC7588 /* SegmentedControlTransition.storyboard in Resources */,
+				38B828C01DB4F6820001A704 /* BetterSegmentedControl.storyboard in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
-				38C5996F1D91875400CC7588 /* TabBarTransition.storyboard in Resources */,
-				38E1219D1D925C3D00376048 /* DynamicPages.storyboard in Resources */,
 				38AD3E3E1D91519900AFC8E0 /* Launch Screen.storyboard in Resources */,
 				385C7EA81D9815F700BEAD30 /* ParallaxHeader.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				38B828BA1DB4ED1E0001A704 /* AKASegmentedControl.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,13 +479,12 @@
 				6003F59E195388D20070C39A /* YTAppDelegate.m in Sources */,
 				38C5996E1D91875400CC7588 /* SegmentedControlTransitionDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				38E121A11D925C8F00376048 /* DynamicPagesViewController.m in Sources */,
 				38E5D0A51D9A267100443CA3 /* ParallaxHeaderTableViewDataSource1.m in Sources */,
-				38E121A41D925D1F00376048 /* DynamicPagesChildViewController.m in Sources */,
 				385C7EAC1D981B4500BEAD30 /* ParallaxHeaderViewController.m in Sources */,
+				38B828C41DB4F75D0001A704 /* BetterSegmentedControlViewController.m in Sources */,
 				38E5D0B11D9A703100443CA3 /* ParallaxHeaderImageViewController.m in Sources */,
 				38E5D0A81D9A268F00443CA3 /* ParallaxHeaderTableViewDataSource2.m in Sources */,
-				38C599701D91875400CC7588 /* TabBarTransitionDelegate.m in Sources */,
+				38B828BE1DB4EE900001A704 /* AKASegmentedControlViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,6 +621,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -642,6 +638,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -48,7 +48,7 @@
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Tab Bar Transition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fGh-Em-b3N">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="AKA Segmented Control" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fGh-Em-b3N">
                                                     <frame key="frameInset" minX="15" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -71,7 +71,7 @@
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Dynamic Pages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o3P-5T-z4p">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Better Segmented Control" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o3P-5T-z4p">
                                                     <frame key="frameInset" minX="15" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -132,18 +132,18 @@
             </objects>
             <point key="canvasLocation" x="870" y="-17"/>
         </scene>
-        <!--TabBarTransition-->
+        <!--AKASegmentedControl-->
         <scene sceneID="2rW-gR-XBO">
             <objects>
-                <viewControllerPlaceholder storyboardName="TabBarTransition" id="36v-AN-y9j" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AKASegmentedControl" id="36v-AN-y9j" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hes-W4-gFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="870" y="92"/>
         </scene>
-        <!--DynamicPages-->
+        <!--BetterSegmentedControl-->
         <scene sceneID="Qe3-9f-m9s">
             <objects>
-                <viewControllerPlaceholder storyboardName="DynamicPages" id="AlQ-U9-7I3" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="BetterSegmentedControl" id="AlQ-U9-7I3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nVX-jb-8fD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="869" y="197"/>

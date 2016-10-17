@@ -80,6 +80,8 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 
 - (void)configureWithViewController:(UIViewController*)childVC parentViewController:(UIViewController*)parentVC;
 
+- (BOOL)isOwnerOfViewController:(UIViewController*)viewController;
+
 @end
 
 
@@ -263,11 +265,13 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
         _coordinator = nil;
     }
     
-    if (_delegateRespondsTo.willTransitionToIndex) {
-        [self.delegate pageController:self willTransitionToIndex:toIndex];
-    }
     if (_delegateRespondsTo.willStartTransition) {
         [self.delegate pageController:self willStartTransition:_context];
+    } else if (_delegateRespondsTo.willTransitionToIndex) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        [self.delegate pageController:self willTransitionToIndex:toIndex];
+#pragma clang diagnostic pop
     }
     
     [_coordinator startTransition];
@@ -544,7 +548,10 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     
     if (cell.indexPath) {
         // Remove the old controller attached with the reused cell, if any.
-        [self removeViewControllerAtIndex:cell.indexPath.item];
+        UIViewController* controller = _controllerCache[@(cell.indexPath.item)];
+        if (controller != nil && [cell isOwnerOfViewController:controller]) {
+            [self removeViewControllerAtIndex:cell.indexPath.item];
+        }
     }
     
     UIViewController* page = [self viewControllerAtIndex:indexPath.item];
@@ -668,6 +675,10 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 
 - (void)prepareForReuse {
     [super prepareForReuse];
+}
+
+- (BOOL)isOwnerOfViewController:(UIViewController *)viewController {
+    return viewController.view.superview == self.contentView;
 }
 
 @end

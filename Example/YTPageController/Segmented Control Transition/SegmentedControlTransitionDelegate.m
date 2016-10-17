@@ -18,7 +18,7 @@
 
 @implementation SegmentedControlTransitionDelegate
 
-- (void)pageController:(YTPageController *)pageController willTransitionToIndex:(NSInteger)index {
+- (void)pageController:(YTPageController *)pageController willStartTransition:(id<YTPageTransitionContext>)context {
     [pageController.pageCoordinator animateAlongsidePagingInView:self.segmentedControl animation:^(id<YTPageTransitionContext>  _Nonnull context) {
         self.segmentedControl.userInteractionEnabled = NO;
         self.segmentedControl.selectedSegmentIndex = [context toIndex];
