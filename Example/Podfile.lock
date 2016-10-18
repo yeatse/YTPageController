@@ -4,19 +4,33 @@ PODS:
   - YTPageController (0.4.0)
 
 DEPENDENCIES:
-  - AKASegmentedControl
-  - BetterSegmentedControl
+  - AKASegmentedControl (from `https://github.com/alikaragoz/AKASegmentedControl.git`, tag `1.0.5`)
+  - BetterSegmentedControl (from `https://github.com/gmarm/BetterSegmentedControl.git`, tag `0.5`)
   - YTPageController (from `../`)
 
 EXTERNAL SOURCES:
+  AKASegmentedControl:
+    :git: https://github.com/alikaragoz/AKASegmentedControl.git
+    :tag: 1.0.5
+  BetterSegmentedControl:
+    :git: https://github.com/gmarm/BetterSegmentedControl.git
+    :tag: '0.5'
   YTPageController:
     :path: ../
+
+CHECKOUT OPTIONS:
+  AKASegmentedControl:
+    :git: https://github.com/alikaragoz/AKASegmentedControl.git
+    :tag: 1.0.5
+  BetterSegmentedControl:
+    :git: https://github.com/gmarm/BetterSegmentedControl.git
+    :tag: '0.5'
 
 SPEC CHECKSUMS:
   AKASegmentedControl: b98249ce1d319cc1971f9f78172173fd90c5f4d5
   BetterSegmentedControl: db74c56602e418e9eca8f6340e0ed0a7215f5f7c
   YTPageController: 327d176ba257a575cefbcfdb0ab7ed60acb6d345
 
-PODFILE CHECKSUM: 5d9e043357d064768774e31e46ee3e3d5aa66639
+PODFILE CHECKSUM: 860c24af1703a7cf26e0855c22427144dcfba025
 
 COCOAPODS: 1.1.0.rc.2

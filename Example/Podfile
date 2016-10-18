@@ -1,9 +1,10 @@
+source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'YTPageController_Example' do
   pod 'YTPageController', :path => '../'
-  pod 'BetterSegmentedControl'
-  pod 'AKASegmentedControl'
+  pod 'BetterSegmentedControl', :git => 'https://github.com/gmarm/BetterSegmentedControl.git', :tag => '0.5'
+  pod 'AKASegmentedControl', :git => 'https://github.com/alikaragoz/AKASegmentedControl.git', :tag => '1.0.5'
 
   target 'YTPageController_Tests' do
     inherit! :search_paths
