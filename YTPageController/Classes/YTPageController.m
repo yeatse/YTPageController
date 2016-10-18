@@ -633,7 +633,7 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
         if (progress < -DBL_EPSILON || progress - 1 > DBL_EPSILON) {
             if (scrollView.tracking) {
                 overDragging = YES;
-            } else if (ABS(newIndex - ctrl.currentIndex) > 1) {
+            } else if (ABS(newIndex - ctrl.currentIndex) > 2) {
                 // When scrolling fast the `scrollViewWillEndDragging:withVelocity:targetContentOffset:` may be not called
                 // So we force the index to update
                 overDragging = YES;
