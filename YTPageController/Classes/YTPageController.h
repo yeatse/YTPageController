@@ -75,6 +75,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ The view controller currently displayed by the page controller, associated with currentIndex
+ */
+@property (nullable, nonatomic, readonly) __kindof UIViewController* currentViewController;
+
+
+/**
  Sets the current index, in an animated way, if desired.
  
  @param currentIndex The index for the page controller to scroll into view.

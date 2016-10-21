@@ -195,6 +195,14 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     _collectionView.scrollEnabled = scrollEnabled;
 }
 
+- (UIViewController *)currentViewController {
+    if (_currentIndex < 0 || _currentIndex >= self._collectionViewDataSource.numberOfViewControllers) {
+        return nil;
+    } else {
+        return [self._collectionViewDataSource viewControllerAtIndex:_currentIndex];
+    }
+}
+
 - (void)setCurrentIndex:(NSInteger)currentIndex {
     [self setCurrentIndex:currentIndex animated:NO];
 }
