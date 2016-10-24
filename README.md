@@ -5,61 +5,82 @@
 [![License](https://img.shields.io/cocoapods/l/YTPageController.svg?style=flat)](http://cocoapods.org/pods/YTPageController)
 [![Platform](https://img.shields.io/cocoapods/p/YTPageController.svg?style=flat)](http://cocoapods.org/pods/YTPageController)
 
-Yet another drop-in replacement of `UIPageViewController`, inspired by Apple's offical Music app.
+YTPageController introduces a neat and general solution to perform smooth transitions when scrolling between view controllers, like what Apple did in their Music app:
 
-## What problem does YTPageController try to resolve?
+![](applemusic.gif)
 
-YTPageController introduces a general solution to achieve a smooth transition when user scrolls between view controllers, just as what Apple did in their Music app:
+YTPageController can act as a drop-in replacement of `UIPageViewController` in your next app, and you no longer need listening to the contentOffset changes and changing the tint colors or frames your self.
 
-![](snapshot0.gif)
+## Introduction
 
-To implement this effect, simply add these lines in your `YTPageControllerDelegate`:
+YTPageController provides a property named `pageCoordinator`, which is similar to [transitionCoordinator](https://developer.apple.com/reference/uikit/uiviewcontrollertransitioncoordinator) in UIViewController, for you to perform your own animations during the page transtion.
 
-```objectivec
-- (void)pageController:(YTPageController *)pageController willTransitionToIndex:(NSInteger)index {
+For example, to animate a `UISegmentedControl`, you can simply add these lines your `YTPageControllerDelegate`:
+
+```objc
+// Called before a transition starts
+- (void)pageController:(YTPageController *)pageController willStartTransition:(id<YTPageTransitionContext>)context {
+    // Add your own animations using `pageCoordinator`
     [pageController.pageCoordinator animateAlongsidePagingInView:self.segmentedControl animation:^(id<YTPageTransitionContext>  _Nonnull context) {
-        // Update your segmented control according to the information contained in YTPageTransitionContext
+        // Update your segmented control according to the context object.
+        self.segmentedControl.userInteractionEnabled = NO;
         self.segmentedControl.selectedSegmentIndex = [context toIndex];
     } completion:^(id<YTPageTransitionContext>  _Nonnull context) {
         if ([context isCanceled]) {
-            // Revert to original state if transition canceled
+            // If transition canceled, restore to the previous state
             self.segmentedControl.selectedSegmentIndex = [context fromIndex];
         }
+        self.segmentedControl.userInteractionEnabled = YES;
     }];
 }
 ```
 
-The key idea to control the percent of its animation is to set the CALayer's `speed` property to 0, and then update the `timeOffset` value according to UIScrollView's `contentOffset`. In addition to `UISegmentedControl`, you can also animate `UITabBar` or any `UIView` subclass you like:
+YTPageController works perfectly with UIKit or third party UI controls, such as [AKASegmentedControl](https://github.com/alikaragoz/AKASegmentedControl.git):
 
-![](snapshot1.gif)
+![](akasegmentedcontrol.gif)
+
+[BetterSegmentedControl](https://github.com/gmarm/BetterSegmentedControl.git):
+
+![](bettersegmentedcontrol.gif)
+
+or any view that can be animated:
+
+![](customview.gif)
 
 Refer to the example project for detailed information.
 
-## Usage
+## Basic usage
 
-- Using code
+You have two ways to quickly setup `YTPageController`:
 
-    You have two ways to set up your `YTPageController` in code:
-    
-    - Implement the `YTPageControllerDataSource` protocol and assign it to `dataSource`.
-    - Assign an array of child view controllers to `viewControllers`.
+#### In code
 
-    If you choose both methods at the same time, `dataSource` will take the priority.
-    
-    Since `YTPageController` is backed by `UICollectionView`, you need to call `- reloadPages` after you change your child view controllers later.
-    
-- Using storyboard
+You can use `YTPageController` as a child view controller or just by subclassing it. In either way, you must provide your view controllers by setting the `dataSource` property:
 
-    You can also set up `YTPageController` in storyboard without any code, like what you have done with `UITabBarController`:
-    
-    ![](relationship.png)
-    
-    Since Apple hasn't provided a custom relationship segue, you need to follow these steps to simulate it:
-    
-    1. Drag a custom segue from `YTPageController` to one of your child view controllers and change its class to `YTPageControllerSegue`;
-    2. Name the identifier of this segue with the format `YTPage_{index}`, such as `YTPage_0`, `YTPage_1`, `YTPage_2`, ...
+```objc
+pageController.dataSource = /* your data source object */
+```
 
-    `YTPageController` will find and perform all these segues in runtime to add the connected view controllers to its child view controllers.
+...or `viewControllers` property:
+
+```objc
+pageController.viewControllers = /* an array of child view controllers */
+```
+
+If you set both properties, `dataSource` will take the priority.
+
+#### Using storyboard
+
+You can also set up `YTPageController` in storyboard without any code, like what you did before with `UITabBarController`:
+
+![](relationship.png)
+
+Since Apple hasn't provided a custom relationship segue, you need to follow these steps to simulate it:
+
+1. Drag a custom segue from `YTPageController` to one of your child view controllers and change its class to `YTPageControllerSegue`;
+2. Name the identifier of this segue with the format `YTPage_{index}`, such as `YTPage_0`, `YTPage_1`, `YTPage_2`, ...
+
+YTPageController will find and perform all these segues in runtime to add the connected view controllers to its child view controllers.
 
 ## Example
 
