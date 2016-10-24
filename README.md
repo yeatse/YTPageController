@@ -35,11 +35,11 @@ For example, to animate a `UISegmentedControl`, you can simply add these lines y
 }
 ```
 
-YTPageController works perfectly with UIKit or third party UI controls, such as [AKASegmentedControl](https://github.com/alikaragoz/AKASegmentedControl.git):
+YTPageController works perfectly with UIKit or third party UI controls, such as [AKASegmentedControl](https://github.com/alikaragoz/AKASegmentedControl):
 
 ![](akasegmentedcontrol.gif)
 
-[BetterSegmentedControl](https://github.com/gmarm/BetterSegmentedControl.git):
+[BetterSegmentedControl](https://github.com/gmarm/BetterSegmentedControl):
 
 ![](bettersegmentedcontrol.gif)
 
