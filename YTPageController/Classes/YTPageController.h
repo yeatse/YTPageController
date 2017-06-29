@@ -47,6 +47,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic) IBInspectable BOOL bounces;
 
+/**
+ A Boolean value that enables force preloading views of next and previous viewControllers.
+ Use with caution as preloading triggers viewWillAppear/viewWillDisappear callbacks when view is not visible yet.
+ Default value is NO.
+ */
+@property (nonatomic) IBInspectable BOOL shouldPreloadViews;
 
 /**
  If the value of this property is YES, scrolling is enabled, otherwise disabled.

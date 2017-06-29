@@ -53,6 +53,7 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 
 @end
 
+@class YTPageCollectionViewCell;
 
 @interface _YTPageCollectionDataSource : NSObject<UICollectionViewDataSource>
 
@@ -71,16 +72,37 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 
 - (instancetype)initWithPageController:(YTPageController*)pageController;
 
+- (void)didStartTransitionWithContext:(_YTPageTransitionContext *)context;
+
+- (void)didFinishTransitionWithContext:(_YTPageTransitionContext *)context;
+
 @end
 
 
 @interface YTPageCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic) NSIndexPath* indexPath;
+@property (nonatomic, weak, readonly) UIViewController* childVC;
 
-- (void)configureWithViewController:(UIViewController*)childVC parentViewController:(UIViewController*)parentVC;
+- (void)configureWithViewController:(UIViewController *)childVC;
+
+- (void)addChildViewIfNeeded;
 
 - (BOOL)isOwnerOfViewController:(UIViewController*)viewController;
+
+@end
+
+@interface _YTPageCollectionCacheView : UIView
+
+- (instancetype)initWithPageController:(YTPageController *)pageController;
+
+- (void)preloadSiblingCells;
+
+- (void)emptyCache;
+
+- (void)cacheViewController:(UIViewController *)viewController forIndex:(NSInteger)index;
+
+- (void)preloadViewControllerAtIndex:(NSInteger)index;
 
 @end
 
@@ -93,6 +115,8 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 @property (nonatomic) UICollectionView* _collectionView;
 @property (nonatomic) _YTPageCollectionDataSource* _collectionViewDataSource;
 @property (nonatomic) _YTPageCollectionDelegate* _collectionViewDelegate;
+
+@property (nonatomic) _YTPageCollectionCacheView *_cacheView;
 
 @property (nonatomic, readonly) _YTPageTransitionContext* _context;
 
@@ -109,6 +133,8 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     
     _YTPageTransitionContext* _context;
     _YTPageTransitionCoordinator* _coordinator;
+    
+    BOOL _isAppeared;
 }
 
 @synthesize _collectionLayout = _collectionLayout;
@@ -156,6 +182,20 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _isAppeared = YES;
+    [self._cacheView preloadSiblingCells];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    _isAppeared = NO;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self._cacheView emptyCache];
+    });
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -165,6 +205,9 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     
     self._collectionLayout.itemSize = self.view.bounds.size;
     self._collectionView.frame = self.view.bounds;
+
+    self._cacheView.frame = CGRectMake(0, self.view.bounds.size.height,
+            self.view.bounds.size.width, self.view.bounds.size.height);
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
@@ -203,6 +246,17 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     }
 }
 
+- (void)setShouldPreloadViews:(BOOL)shouldPreloadViews {
+    if (shouldPreloadViews && !_shouldPreloadViews) {
+        self._cacheView = [[_YTPageCollectionCacheView alloc] initWithPageController:self];
+        [self.view insertSubview:self._cacheView atIndex:2];
+    } else if (!shouldPreloadViews && _shouldPreloadViews) {
+        [self._cacheView removeFromSuperview];
+        self._cacheView = nil;
+    }
+    _shouldPreloadViews = shouldPreloadViews;
+}
+
 - (void)setCurrentIndex:(NSInteger)currentIndex {
     [self setCurrentIndex:currentIndex animated:NO];
 }
@@ -213,6 +267,8 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
         BOOL shouldComplete = (_context.startReason == YTPageTransitionStartedProgrammically);
         [self _finishTransition:shouldComplete];
     }
+
+    [self._cacheView preloadViewControllerAtIndex:currentIndex];
     
     [self _startTransitionToIndex:currentIndex reason:YTPageTransitionStartedProgrammically];
     
@@ -272,7 +328,11 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
         _context.animationDuration = 0;
         _coordinator = nil;
     }
-    
+
+    if (_isAppeared) {
+        [_collectionViewDelegate didStartTransitionWithContext:_context];
+    }
+
     if (_delegateRespondsTo.willStartTransition) {
         [self.delegate pageController:self willStartTransition:_context];
     } else if (_delegateRespondsTo.willTransitionToIndex) {
@@ -316,9 +376,14 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     [_coordinator finishTransition:complete];
     
     _inTransition = NO;
-    
+
     if (_delegateRespondsTo.didEndTransition) {
         [self.delegate pageController:self didEndTransition:_context];
+    }
+
+    if (_isAppeared) {
+        [_collectionViewDelegate didFinishTransitionWithContext:_context];
+        [self._cacheView preloadSiblingCells];
     }
     
     _context = nil;
@@ -490,6 +555,7 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 @end
 
 
+
 @implementation _YTPageCollectionDataSource {
     YTPageController* __weak _controller;
     NSMutableDictionary<NSNumber*, UIViewController*>* _controllerCache;
@@ -542,7 +608,6 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
         [controller willMoveToParentViewController:nil];
         [controller.view removeFromSuperview];
         [controller removeFromParentViewController];
-        
         [_controllerCache removeObjectForKey:@(index)];
     }
 }
@@ -563,9 +628,9 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     }
     
     UIViewController* page = [self viewControllerAtIndex:indexPath.item];
-    [cell configureWithViewController:page parentViewController:_controller];
+    [cell configureWithViewController:page];
     cell.indexPath = indexPath;
-    
+
     return cell;
 }
 
@@ -668,25 +733,189 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
     }
 }
 
-@end
-
-
-@implementation YTPageCollectionViewCell
-
-- (void)configureWithViewController:(UIViewController *)childVC parentViewController:(UIViewController *)parentVC {
-    [parentVC addChildViewController:childVC];
-    [self.contentView addSubview:childVC.view];
-    childVC.view.frame = self.contentView.bounds;
-    childVC.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [childVC didMoveToParentViewController:parentVC];
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell
+    forItemAtIndexPath:(NSIndexPath *)indexPath {
+    // Add ViewController's view immediately before cell become visible.
+    // This will 'freeze' UI before animation, instead of during animation.
+    // There is a chance that view is already loaded inside _YTPageCollectionCacheView,
+    // then moving to another superview should work instantly and smooth
+    YTPageCollectionViewCell *pageCell = (id)cell;
+    [pageCell addChildViewIfNeeded];
 }
 
-- (void)prepareForReuse {
-    [super prepareForReuse];
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell
+    forItemAtIndexPath:(NSIndexPath *)indexPath {
+    YTPageCollectionViewCell *pageCell = (id)cell;
+    if (_controller._cacheView) {
+        // Add already loaded ViewController to CacheView just before it become invisible.
+        // We are keeping next and previous ViewController's view explicit in CacheView for smooth scrolling
+        [_controller._cacheView cacheViewController:pageCell.childVC forIndex:indexPath.item];
+    } else {
+        // Remove viewController's view after it become invisible to have viewWill/DidDisappear callbacks
+        // called correctly
+        [pageCell.childVC.view removeFromSuperview];
+    }
+}
+
+//TODO: Move transition handling to other place
+- (void)didStartTransitionWithContext:(_YTPageTransitionContext *)context {
+    [self prepareTransition:NO viewController:context.fromViewController];
+    [self prepareTransition:YES viewController:context.toViewController];
+}
+
+- (void)didFinishTransitionWithContext:(_YTPageTransitionContext *)context {
+    if (context.isCanceled) {
+        [self cancelTransition:NO viewController:context.fromViewController];
+        [self cancelTransition:YES viewController:context.toViewController];
+    }
+    [self finishTransition:NO cancelled:context.isCanceled viewController:context.fromViewController];
+    [self finishTransition:YES cancelled:context.isCanceled viewController:context.toViewController];
+}
+
+- (void)prepareTransition:(BOOL)isAppearing viewController:(UIViewController *)viewController {
+    if (isAppearing) {
+        [_controller addChildViewController:viewController];
+        [viewController beginAppearanceTransition:YES animated:YES];
+    } else {
+        [viewController willMoveToParentViewController:nil];
+        [viewController beginAppearanceTransition:NO animated:YES];
+    }
+}
+
+- (void)cancelTransition:(BOOL)isAppearing viewController:(UIViewController *)viewController {
+    if (isAppearing) {
+        [viewController willMoveToParentViewController:nil];
+        [viewController beginAppearanceTransition:NO animated:YES];
+    } else {
+        [viewController willMoveToParentViewController:_controller];
+        [viewController beginAppearanceTransition:YES animated:YES];
+    }
+}
+
+- (void)finishTransition:(BOOL)isAppearing cancelled:(BOOL)cancelled viewController:(UIViewController *)viewController {
+    if (cancelled) {
+        isAppearing = !isAppearing;
+    }
+    if (isAppearing) {
+        [viewController endAppearanceTransition];
+        [viewController didMoveToParentViewController:_controller];
+    } else {
+        [viewController endAppearanceTransition];
+        [viewController removeFromParentViewController];
+    }
+}
+
+
+@end
+
+@implementation YTPageCollectionViewCell {
+    __weak UIViewController *_childVC;
+}
+
+- (void)configureWithViewController:(UIViewController *)childVC {
+    _childVC = childVC;
+}
+
+- (void)addChildView {
+    //This should cause view to load
+    [self.contentView addSubview:_childVC.view];
+    _childVC.view.frame = self.contentView.bounds;
+    _childVC.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+}
+
+- (void)addChildViewIfNeeded {
+    if (![self isOwnerOfViewController:_childVC]) {
+        [self addChildView];
+    }
 }
 
 - (BOOL)isOwnerOfViewController:(UIViewController *)viewController {
     return viewController.view.superview == self.contentView;
 }
+
+@end
+
+
+@implementation _YTPageCollectionCacheView {
+    NSMapTable<NSNumber *, UIView *> *_cachedViews;
+    __weak YTPageController *_controller;
+}
+
+- (instancetype)initWithPageController:(YTPageController *)pageController {
+    self = [super init];
+    if (self) {
+        _controller = pageController;
+        _cachedViews = [NSMapTable strongToWeakObjectsMapTable];
+    }
+    return self;
+}
+
+- (void)preloadSiblingCells {
+    NSInteger currentIndex = [_controller currentIndex];
+
+    [self cleanupForCurrentIndex:currentIndex];
+
+    NSInteger count = [[_controller _collectionView] numberOfItemsInSection:0];
+
+    if (currentIndex + 1 < count ) {
+        [self preloadViewControllerAtIndex:currentIndex + 1];
+    }
+    if (currentIndex > 0) {
+        [self preloadViewControllerAtIndex:currentIndex - 1];
+    }
+}
+
+- (void)emptyCache {
+    for (UIView *view in self.subviews) {
+        [view removeFromSuperview];
+    }
+    [_cachedViews removeAllObjects];
+}
+
+- (void)cleanupForCurrentIndex:(NSInteger)currentIndex {
+    NSEnumerator *enumerator = [_cachedViews keyEnumerator];
+    NSNumber *key = nil;
+
+    NSMutableSet *keysToRemove = [NSMutableSet new];
+    
+    while ((key = [enumerator nextObject])) {
+        NSInteger index = [key integerValue];
+        BOOL isOutsideRange = index < currentIndex - 1 || index > currentIndex + 1;
+        if (isOutsideRange) {
+            [keysToRemove addObject:key];
+        }
+    }
+    for (key in keysToRemove) {
+        UIView *view = [_cachedViews objectForKey:key];
+        [view removeFromSuperview];
+        [_cachedViews removeObjectForKey:key];
+    }
+}
+
+- (void)cacheViewController:(UIViewController *)viewController forIndex:(NSInteger)index {
+    [self addSubview:viewController.view];
+    viewController.view.frame = self.bounds;
+    viewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [_cachedViews setObject:viewController.view forKey:@(index)];
+}
+
+- (void)preloadViewControllerAtIndex:(NSInteger)index {
+    _YTPageCollectionDataSource *dataSource = [_controller _collectionViewDataSource];
+    UIViewController *viewController = [dataSource viewControllerAtIndex:index];
+    [self preloadViewController:viewController forIndex:index];
+}
+
+- (void)preloadViewController:(UIViewController *)viewController forIndex:(NSInteger)index {
+    if (![_cachedViews objectForKey:@(index)]) {
+        // We mimic behaviour of UINavigationController, when we trying to pop viewController
+        // using panGestureRecognizer, but then cancel it. In other words we should call:
+        // WillAppear -> WillDisappear -> DidDisappear
+        [viewController beginAppearanceTransition:YES animated:NO];
+        [self cacheViewController:viewController forIndex:index];
+        [viewController beginAppearanceTransition:NO animated:NO];
+        [viewController endAppearanceTransition];
+    }
+}
+
 
 @end
