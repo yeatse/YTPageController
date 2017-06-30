@@ -906,7 +906,8 @@ typedef NS_ENUM(NSInteger, YTPageTransitionStartReason) {
 }
 
 - (void)preloadViewController:(UIViewController *)viewController forIndex:(NSInteger)index {
-    if (![_cachedViews objectForKey:@(index)]) {
+    BOOL isAlreadyLoaded = viewController.view.superview != nil;
+    if (![_cachedViews objectForKey:@(index)] && !isAlreadyLoaded) {
         // We mimic behaviour of UINavigationController, when we trying to pop viewController
         // using panGestureRecognizer, but then cancel it. In other words we should call:
         // WillAppear -> WillDisappear -> DidDisappear
